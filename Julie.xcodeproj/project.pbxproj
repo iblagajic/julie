@@ -12,6 +12,10 @@
 		1AC5CEAF1D020974005E2F68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AC5CEAD1D020974005E2F68 /* Main.storyboard */; };
 		1AC5CEB11D020974005E2F68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AC5CEB01D020974005E2F68 /* Assets.xcassets */; };
 		1AC5CEB41D020974005E2F68 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AC5CEB21D020974005E2F68 /* LaunchScreen.storyboard */; };
+		1AC5CEBF1D020A1B005E2F68 /* RhapsodyKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1AC5CEBD1D020A1B005E2F68 /* RhapsodyKit.bundle */; };
+		1AC5CEC01D020A1B005E2F68 /* RhapsodyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC5CEBE1D020A1B005E2F68 /* RhapsodyKit.framework */; };
+		1AC5CEC21D020AB6005E2F68 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC5CEC11D020AB6005E2F68 /* AudioToolbox.framework */; };
+		1AC5CEC41D020AC2005E2F68 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC5CEC31D020AC2005E2F68 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,11 @@
 		1AC5CEB01D020974005E2F68 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1AC5CEB31D020974005E2F68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1AC5CEB51D020974005E2F68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1AC5CEBD1D020A1B005E2F68 /* RhapsodyKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RhapsodyKit.bundle; sourceTree = "<group>"; };
+		1AC5CEBE1D020A1B005E2F68 /* RhapsodyKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RhapsodyKit.framework; sourceTree = "<group>"; };
+		1AC5CEC11D020AB6005E2F68 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		1AC5CEC31D020AC2005E2F68 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		1AC5CEC51D020AE0005E2F68 /* Julie-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Julie-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +38,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AC5CEC41D020AC2005E2F68 /* CoreData.framework in Frameworks */,
+				1AC5CEC21D020AB6005E2F68 /* AudioToolbox.framework in Frameworks */,
+				1AC5CEC01D020A1B005E2F68 /* RhapsodyKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +50,7 @@
 		1AC5CE9D1D020974005E2F68 = {
 			isa = PBXGroup;
 			children = (
+				1AC5CEBB1D020A1B005E2F68 /* Frameworks */,
 				1AC5CEA81D020974005E2F68 /* Julie */,
 				1AC5CEA71D020974005E2F68 /* Products */,
 			);
@@ -60,8 +73,28 @@
 				1AC5CEB01D020974005E2F68 /* Assets.xcassets */,
 				1AC5CEB21D020974005E2F68 /* LaunchScreen.storyboard */,
 				1AC5CEB51D020974005E2F68 /* Info.plist */,
+				1AC5CEC51D020AE0005E2F68 /* Julie-Bridging-Header.h */,
 			);
 			path = Julie;
+			sourceTree = "<group>";
+		};
+		1AC5CEBB1D020A1B005E2F68 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1AC5CEC31D020AC2005E2F68 /* CoreData.framework */,
+				1AC5CEC11D020AB6005E2F68 /* AudioToolbox.framework */,
+				1AC5CEBC1D020A1B005E2F68 /* RhapsodyKit for iOS */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		1AC5CEBC1D020A1B005E2F68 /* RhapsodyKit for iOS */ = {
+			isa = PBXGroup;
+			children = (
+				1AC5CEBD1D020A1B005E2F68 /* RhapsodyKit.bundle */,
+				1AC5CEBE1D020A1B005E2F68 /* RhapsodyKit.framework */,
+			);
+			path = "RhapsodyKit for iOS";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,6 +155,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AC5CEBF1D020A1B005E2F68 /* RhapsodyKit.bundle in Resources */,
 				1AC5CEB41D020974005E2F68 /* LaunchScreen.storyboard in Resources */,
 				1AC5CEB11D020974005E2F68 /* Assets.xcassets in Resources */,
 				1AC5CEAF1D020974005E2F68 /* Main.storyboard in Resources */,
@@ -249,10 +283,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks/RhapsodyKit",
+					for,
+					iOS,
+				);
 				INFOPLIST_FILE = Julie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fivedollarmilkshake.Julie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Julie/Julie-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -260,10 +304,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks/RhapsodyKit",
+					for,
+					iOS,
+				);
 				INFOPLIST_FILE = Julie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fivedollarmilkshake.Julie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Julie/Julie-Bridging-Header.h";
 			};
 			name = Release;
 		};
