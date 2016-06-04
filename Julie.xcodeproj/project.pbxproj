@@ -7,28 +7,48 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A7D5A8B1D03192C002017D6 /* RectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7D5A8A1D03192C002017D6 /* RectButton.swift */; };
+		1A7D5A8D1D031D15002017D6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7D5A8C1D031D15002017D6 /* LoginViewModel.swift */; };
+		1A7D5A901D031E34002017D6 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7D5A8F1D031E34002017D6 /* Validator.swift */; };
+		1A7D5A931D032C4C002017D6 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7D5A921D032C4C002017D6 /* ActivityIndicator.swift */; };
+		1A7F61251D020FD400878246 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7F61241D020FD400878246 /* LoginController.swift */; };
+		1A7F612E1D0215CF00878246 /* RhapsodyKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1A7F612C1D0215CF00878246 /* RhapsodyKit.bundle */; };
+		1A7F612F1D0215CF00878246 /* RhapsodyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7F612D1D0215CF00878246 /* RhapsodyKit.framework */; };
+		1AA116F61D03040800A404D7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA116F41D03040800A404D7 /* LoginViewController.swift */; };
+		1AA116F71D03040800A404D7 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AA116F51D03040800A404D7 /* LoginViewController.xib */; };
+		1AA116FC1D0307FD00A404D7 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA116FB1D0307FD00A404D7 /* TextField.swift */; };
+		1AA116FE1D03154800A404D7 /* UIColor+Julie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA116FD1D03154800A404D7 /* UIColor+Julie.swift */; };
+		1AA117001D03155900A404D7 /* UIFont+Julie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA116FF1D03155900A404D7 /* UIFont+Julie.swift */; };
+		1AA117021D03157E00A404D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA117011D03157E00A404D7 /* ViewController.swift */; };
+		1AA117041D03172500A404D7 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA117031D03172500A404D7 /* ImageView.swift */; };
 		1AC5CEAA1D020974005E2F68 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC5CEA91D020974005E2F68 /* AppDelegate.swift */; };
-		1AC5CEAC1D020974005E2F68 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC5CEAB1D020974005E2F68 /* ViewController.swift */; };
-		1AC5CEAF1D020974005E2F68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AC5CEAD1D020974005E2F68 /* Main.storyboard */; };
 		1AC5CEB11D020974005E2F68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AC5CEB01D020974005E2F68 /* Assets.xcassets */; };
 		1AC5CEB41D020974005E2F68 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AC5CEB21D020974005E2F68 /* LaunchScreen.storyboard */; };
-		1AC5CEBF1D020A1B005E2F68 /* RhapsodyKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1AC5CEBD1D020A1B005E2F68 /* RhapsodyKit.bundle */; };
-		1AC5CEC01D020A1B005E2F68 /* RhapsodyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC5CEBE1D020A1B005E2F68 /* RhapsodyKit.framework */; };
 		1AC5CEC21D020AB6005E2F68 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC5CEC11D020AB6005E2F68 /* AudioToolbox.framework */; };
 		1AC5CEC41D020AC2005E2F68 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC5CEC31D020AC2005E2F68 /* CoreData.framework */; };
 		1C441C327EE5F7CB8B4BFE95 /* Pods_Julie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9755C0025980908A1D26E24 /* Pods_Julie.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A7D5A8A1D03192C002017D6 /* RectButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RectButton.swift; sourceTree = "<group>"; };
+		1A7D5A8C1D031D15002017D6 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		1A7D5A8F1D031E34002017D6 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		1A7D5A921D032C4C002017D6 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		1A7F61241D020FD400878246 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		1A7F612C1D0215CF00878246 /* RhapsodyKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RhapsodyKit.bundle; sourceTree = "<group>"; };
+		1A7F612D1D0215CF00878246 /* RhapsodyKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RhapsodyKit.framework; sourceTree = "<group>"; };
+		1AA116F41D03040800A404D7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1AA116F51D03040800A404D7 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		1AA116FB1D0307FD00A404D7 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		1AA116FD1D03154800A404D7 /* UIColor+Julie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Julie.swift"; sourceTree = "<group>"; };
+		1AA116FF1D03155900A404D7 /* UIFont+Julie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Julie.swift"; sourceTree = "<group>"; };
+		1AA117011D03157E00A404D7 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1AA117031D03172500A404D7 /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		1AC5CEA61D020974005E2F68 /* Julie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Julie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AC5CEA91D020974005E2F68 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1AC5CEAB1D020974005E2F68 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1AC5CEAE1D020974005E2F68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1AC5CEB01D020974005E2F68 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1AC5CEB31D020974005E2F68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1AC5CEB51D020974005E2F68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1AC5CEBD1D020A1B005E2F68 /* RhapsodyKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RhapsodyKit.bundle; sourceTree = "<group>"; };
-		1AC5CEBE1D020A1B005E2F68 /* RhapsodyKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RhapsodyKit.framework; sourceTree = "<group>"; };
 		1AC5CEC11D020AB6005E2F68 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		1AC5CEC31D020AC2005E2F68 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		1AC5CEC51D020AE0005E2F68 /* Julie-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Julie-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -44,14 +64,47 @@
 			files = (
 				1AC5CEC41D020AC2005E2F68 /* CoreData.framework in Frameworks */,
 				1AC5CEC21D020AB6005E2F68 /* AudioToolbox.framework in Frameworks */,
-				1AC5CEC01D020A1B005E2F68 /* RhapsodyKit.framework in Frameworks */,
 				1C441C327EE5F7CB8B4BFE95 /* Pods_Julie.framework in Frameworks */,
+				1A7F612F1D0215CF00878246 /* RhapsodyKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A7D5A911D032C4C002017D6 /* Rx */ = {
+			isa = PBXGroup;
+			children = (
+				1A7D5A921D032C4C002017D6 /* ActivityIndicator.swift */,
+			);
+			path = Rx;
+			sourceTree = "<group>";
+		};
+		1A7F61231D020FC900878246 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				1A7F61241D020FD400878246 /* LoginController.swift */,
+				1AA116F41D03040800A404D7 /* LoginViewController.swift */,
+				1AA116F51D03040800A404D7 /* LoginViewController.xib */,
+				1A7D5A8C1D031D15002017D6 /* LoginViewModel.swift */,
+				1A7D5A8F1D031E34002017D6 /* Validator.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		1AA116FA1D0306B300A404D7 /* Appereance */ = {
+			isa = PBXGroup;
+			children = (
+				1AA116FF1D03155900A404D7 /* UIFont+Julie.swift */,
+				1AA116FB1D0307FD00A404D7 /* TextField.swift */,
+				1AA116FD1D03154800A404D7 /* UIColor+Julie.swift */,
+				1AA117011D03157E00A404D7 /* ViewController.swift */,
+				1AA117031D03172500A404D7 /* ImageView.swift */,
+				1A7D5A8A1D03192C002017D6 /* RectButton.swift */,
+			);
+			path = Appereance;
+			sourceTree = "<group>";
+		};
 		1AC5CE9D1D020974005E2F68 = {
 			isa = PBXGroup;
 			children = (
@@ -73,9 +126,10 @@
 		1AC5CEA81D020974005E2F68 /* Julie */ = {
 			isa = PBXGroup;
 			children = (
+				1A7D5A911D032C4C002017D6 /* Rx */,
+				1AA116FA1D0306B300A404D7 /* Appereance */,
+				1A7F61231D020FC900878246 /* Login */,
 				1AC5CEA91D020974005E2F68 /* AppDelegate.swift */,
-				1AC5CEAB1D020974005E2F68 /* ViewController.swift */,
-				1AC5CEAD1D020974005E2F68 /* Main.storyboard */,
 				1AC5CEB01D020974005E2F68 /* Assets.xcassets */,
 				1AC5CEB21D020974005E2F68 /* LaunchScreen.storyboard */,
 				1AC5CEB51D020974005E2F68 /* Info.plist */,
@@ -87,21 +141,13 @@
 		1AC5CEBB1D020A1B005E2F68 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1A7F612C1D0215CF00878246 /* RhapsodyKit.bundle */,
+				1A7F612D1D0215CF00878246 /* RhapsodyKit.framework */,
 				1AC5CEC31D020AC2005E2F68 /* CoreData.framework */,
 				1AC5CEC11D020AB6005E2F68 /* AudioToolbox.framework */,
-				1AC5CEBC1D020A1B005E2F68 /* RhapsodyKit for iOS */,
 				F9755C0025980908A1D26E24 /* Pods_Julie.framework */,
 			);
 			path = Frameworks;
-			sourceTree = "<group>";
-		};
-		1AC5CEBC1D020A1B005E2F68 /* RhapsodyKit for iOS */ = {
-			isa = PBXGroup;
-			children = (
-				1AC5CEBD1D020A1B005E2F68 /* RhapsodyKit.bundle */,
-				1AC5CEBE1D020A1B005E2F68 /* RhapsodyKit.framework */,
-			);
-			path = "RhapsodyKit for iOS";
 			sourceTree = "<group>";
 		};
 		39A0956A32BA91BE0818E98F /* Pods */ = {
@@ -174,10 +220,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AC5CEBF1D020A1B005E2F68 /* RhapsodyKit.bundle in Resources */,
+				1AA116F71D03040800A404D7 /* LoginViewController.xib in Resources */,
+				1A7F612E1D0215CF00878246 /* RhapsodyKit.bundle in Resources */,
 				1AC5CEB41D020974005E2F68 /* LaunchScreen.storyboard in Resources */,
 				1AC5CEB11D020974005E2F68 /* Assets.xcassets in Resources */,
-				1AC5CEAF1D020974005E2F68 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,7 +282,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AC5CEAC1D020974005E2F68 /* ViewController.swift in Sources */,
+				1AA116F61D03040800A404D7 /* LoginViewController.swift in Sources */,
+				1A7F61251D020FD400878246 /* LoginController.swift in Sources */,
+				1AA116FC1D0307FD00A404D7 /* TextField.swift in Sources */,
+				1AA117041D03172500A404D7 /* ImageView.swift in Sources */,
+				1A7D5A931D032C4C002017D6 /* ActivityIndicator.swift in Sources */,
+				1AA116FE1D03154800A404D7 /* UIColor+Julie.swift in Sources */,
+				1A7D5A901D031E34002017D6 /* Validator.swift in Sources */,
+				1AA117001D03155900A404D7 /* UIFont+Julie.swift in Sources */,
+				1AA117021D03157E00A404D7 /* ViewController.swift in Sources */,
+				1A7D5A8B1D03192C002017D6 /* RectButton.swift in Sources */,
+				1A7D5A8D1D031D15002017D6 /* LoginViewModel.swift in Sources */,
 				1AC5CEAA1D020974005E2F68 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,14 +300,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1AC5CEAD1D020974005E2F68 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1AC5CEAE1D020974005E2F68 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1AC5CEB21D020974005E2F68 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -303,6 +351,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				OTHER_SWIFT_FLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -341,6 +391,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -357,13 +408,15 @@
 					"$(PROJECT_DIR)/Frameworks/RhapsodyKit",
 					for,
 					iOS,
+					"$(PROJECT_DIR)/Frameworks/RhapsodyKit",
+					for,
+					iOS,
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = Julie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"$(inherited)",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited) -D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fivedollarmilkshake.Julie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Julie/Julie-Bridging-Header.h";
@@ -382,13 +435,15 @@
 					"$(PROJECT_DIR)/Frameworks/RhapsodyKit",
 					for,
 					iOS,
+					"$(PROJECT_DIR)/Frameworks/RhapsodyKit",
+					for,
+					iOS,
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = Julie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"$(inherited)",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fivedollarmilkshake.Julie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Julie/Julie-Bridging-Header.h";
