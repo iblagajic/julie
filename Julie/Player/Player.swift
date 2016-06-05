@@ -11,23 +11,28 @@ import RxSwift
 class Player {
     
     let rhapsody: RHKRhapsody
-    let dataProvider: DataProvider
     
     let bag = DisposeBag()
     
-    init(rhapsody: RHKRhapsody, dataProvider: DataProvider) {
+    init(rhapsody: RHKRhapsody) {
         self.rhapsody = rhapsody
-        self.dataProvider = dataProvider
     }
     
     func startPlaying() {
-        dataProvider.fetchFavorites()
-            .asDriver(onErrorJustReturn: [])
-            .driveNext { tracks in
+        rhapsody.fetchFavorites()
+            .map { tracks in
+                guard tracks.count > 0 else {
+                    return ""
+                }
                 let range = UInt32(tracks.count)
                 let rand = Int(arc4random_uniform(range))
-                let track = tracks[rand]
-                self.rhapsody.player.playTrack(track)
+                return tracks[rand].album.ID
+        }.flatMap(rhapsody.fetchTracks)
+        .asDriver(onErrorJustReturn: [])
+        .driveNext { [weak self] tracks in
+            // TODO: Play album
+            let firstTrack = tracks.first
+            self?.rhapsody.player.playTrack(firstTrack)
         }.addDisposableTo(bag)
     }
     

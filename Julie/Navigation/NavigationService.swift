@@ -25,10 +25,15 @@ class NavigationService {
         navigationController.pushViewController(viewController, animated: animated)
     }
     
-    func pushPlayer(token: String, rhapsody:RHKRhapsody, animated: Bool = true) {
-        let dataProvider = DataProvider(token: token)
-        let playerViewModel = PlayerViewModel(rhapsody: rhapsody, dataProvider: dataProvider)
-        let viewController = PlayerViewController(playerViewModel: playerViewModel)
+    func pushPlayer(rhapsody:RHKRhapsody, animated: Bool = true) {
+        let viewModel = PlayerViewModel(rhapsody: rhapsody, navigationService: self)
+        let viewController = PlayerViewController(viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: animated)
+    }
+    
+    func pushNowPlaying(rhapsody: RHKRhapsody, animated: Bool = true) {
+        let viewModel = NowPlayingViewModel(rhapsody: rhapsody)
+        let viewController = NowPlayingViewController(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: animated)
     }
     

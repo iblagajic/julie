@@ -14,9 +14,9 @@ class PlayerViewController: ViewController {
 
     @IBOutlet weak var playButton: UIButton!
     
-    convenience init(playerViewModel: PlayerViewModel) {
+    convenience init(viewModel: PlayerViewModel) {
         self.init()
-        self.viewModel = playerViewModel
+        self.viewModel = viewModel
     }
     
     override func viewDidLayoutSubviews() {

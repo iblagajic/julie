@@ -29,10 +29,14 @@
 		1AE0F39A1D03431800F22345 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE0F3991D03431800F22345 /* Player.swift */; };
 		1AE0F39D1D03438C00F22345 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE0F39B1D03438C00F22345 /* PlayerViewController.swift */; };
 		1AE0F39E1D03438C00F22345 /* PlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AE0F39C1D03438C00F22345 /* PlayerViewController.xib */; };
-		1AE0F3A11D04117200F22345 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE0F3A01D04117200F22345 /* DataProvider.swift */; };
+		1AE0F3A11D04117200F22345 /* RHKRhapsody+DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE0F3A01D04117200F22345 /* RHKRhapsody+DataProvider.swift */; };
 		1AE0F3A41D04141200F22345 /* NavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE0F3A31D04141200F22345 /* NavigationService.swift */; };
 		1AE0F3A71D041E7800F22345 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE0F3A61D041E7800F22345 /* PlayerViewModel.swift */; };
 		1AE0F3AE1D04289E00F22345 /* RHKTrack+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE0F3AD1D04289E00F22345 /* RHKTrack+JSON.swift */; };
+		1AE0F3B31D04373600F22345 /* RHKRhapsody+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE0F3B21D04373600F22345 /* RHKRhapsody+Rx.swift */; };
+		1AE0F3B71D043E7D00F22345 /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE0F3B51D043E7D00F22345 /* NowPlayingViewController.swift */; };
+		1AE0F3B81D043E7D00F22345 /* NowPlayingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AE0F3B61D043E7D00F22345 /* NowPlayingViewController.xib */; };
+		1AE0F3BA1D04982C00F22345 /* NowPlayingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE0F3B91D04982C00F22345 /* NowPlayingViewModel.swift */; };
 		1C441C327EE5F7CB8B4BFE95 /* Pods_Julie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9755C0025980908A1D26E24 /* Pods_Julie.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,10 +66,14 @@
 		1AE0F3991D03431800F22345 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		1AE0F39B1D03438C00F22345 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		1AE0F39C1D03438C00F22345 /* PlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerViewController.xib; sourceTree = "<group>"; };
-		1AE0F3A01D04117200F22345 /* DataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		1AE0F3A01D04117200F22345 /* RHKRhapsody+DataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RHKRhapsody+DataProvider.swift"; sourceTree = "<group>"; };
 		1AE0F3A31D04141200F22345 /* NavigationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationService.swift; sourceTree = "<group>"; };
 		1AE0F3A61D041E7800F22345 /* PlayerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
 		1AE0F3AD1D04289E00F22345 /* RHKTrack+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RHKTrack+JSON.swift"; sourceTree = "<group>"; };
+		1AE0F3B21D04373600F22345 /* RHKRhapsody+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RHKRhapsody+Rx.swift"; sourceTree = "<group>"; };
+		1AE0F3B51D043E7D00F22345 /* NowPlayingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
+		1AE0F3B61D043E7D00F22345 /* NowPlayingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NowPlayingViewController.xib; sourceTree = "<group>"; };
+		1AE0F3B91D04982C00F22345 /* NowPlayingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingViewModel.swift; sourceTree = "<group>"; };
 		A5298D56B6ADE065E6388218 /* Pods-Julie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Julie.release.xcconfig"; path = "Pods/Target Support Files/Pods-Julie/Pods-Julie.release.xcconfig"; sourceTree = "<group>"; };
 		B1A68D6F951976F0C2A12CCA /* Pods-Julie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Julie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Julie/Pods-Julie.debug.xcconfig"; sourceTree = "<group>"; };
 		F9755C0025980908A1D26E24 /* Pods_Julie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Julie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				1A7D5A921D032C4C002017D6 /* ActivityIndicator.swift */,
+				1AE0F3B21D04373600F22345 /* RHKRhapsody+Rx.swift */,
 			);
 			path = Rx;
 			sourceTree = "<group>";
@@ -140,15 +149,16 @@
 		1AC5CEA81D020974005E2F68 /* Julie */ = {
 			isa = PBXGroup;
 			children = (
-				1AC5CEA91D020974005E2F68 /* AppDelegate.swift */,
-				1AA116FA1D0306B300A404D7 /* Appereance */,
-				1AC5CEB01D020974005E2F68 /* Assets.xcassets */,
-				1AE0F39F1D04116400F22345 /* Data */,
-				1AC5CEB51D020974005E2F68 /* Info.plist */,
 				1AC5CEC51D020AE0005E2F68 /* Julie-Bridging-Header.h */,
+				1AC5CEB51D020974005E2F68 /* Info.plist */,
+				1AC5CEA91D020974005E2F68 /* AppDelegate.swift */,
+				1AC5CEB01D020974005E2F68 /* Assets.xcassets */,
+				1AA116FA1D0306B300A404D7 /* Appereance */,
+				1AE0F39F1D04116400F22345 /* Data */,
 				1AC5CEB21D020974005E2F68 /* LaunchScreen.storyboard */,
 				1A7F61231D020FC900878246 /* Login */,
 				1AE0F3A21D04140400F22345 /* Navigation */,
+				1AE0F3B41D043E6600F22345 /* NowPlaying */,
 				1AE0F3981D0342EC00F22345 /* Player */,
 				1A7D5A911D032C4C002017D6 /* Rx */,
 				1AE0F3B01D04326600F22345 /* Settings */,
@@ -182,7 +192,7 @@
 		1AE0F39F1D04116400F22345 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				1AE0F3A01D04117200F22345 /* DataProvider.swift */,
+				1AE0F3A01D04117200F22345 /* RHKRhapsody+DataProvider.swift */,
 				1AE0F3AD1D04289E00F22345 /* RHKTrack+JSON.swift */,
 			);
 			path = Data;
@@ -201,6 +211,16 @@
 			children = (
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		1AE0F3B41D043E6600F22345 /* NowPlaying */ = {
+			isa = PBXGroup;
+			children = (
+				1AE0F3B51D043E7D00F22345 /* NowPlayingViewController.swift */,
+				1AE0F3B61D043E7D00F22345 /* NowPlayingViewController.xib */,
+				1AE0F3B91D04982C00F22345 /* NowPlayingViewModel.swift */,
+			);
+			path = NowPlaying;
 			sourceTree = "<group>";
 		};
 		39A0956A32BA91BE0818E98F /* Pods */ = {
@@ -275,6 +295,7 @@
 			files = (
 				1AA116F71D03040800A404D7 /* LoginViewController.xib in Resources */,
 				1AE0F39E1D03438C00F22345 /* PlayerViewController.xib in Resources */,
+				1AE0F3B81D043E7D00F22345 /* NowPlayingViewController.xib in Resources */,
 				1A7F612E1D0215CF00878246 /* RhapsodyKit.bundle in Resources */,
 				1AC5CEB41D020974005E2F68 /* LaunchScreen.storyboard in Resources */,
 				1AC5CEB11D020974005E2F68 /* Assets.xcassets in Resources */,
@@ -347,10 +368,13 @@
 				1AE0F39A1D03431800F22345 /* Player.swift in Sources */,
 				1AA116FE1D03154800A404D7 /* UIColor+Julie.swift in Sources */,
 				1A7D5A901D031E34002017D6 /* Validator.swift in Sources */,
+				1AE0F3BA1D04982C00F22345 /* NowPlayingViewModel.swift in Sources */,
+				1AE0F3B31D04373600F22345 /* RHKRhapsody+Rx.swift in Sources */,
 				1AA117001D03155900A404D7 /* UIFont+Julie.swift in Sources */,
 				1AA117021D03157E00A404D7 /* ViewController.swift in Sources */,
 				1A7D5A8B1D03192C002017D6 /* RectButton.swift in Sources */,
-				1AE0F3A11D04117200F22345 /* DataProvider.swift in Sources */,
+				1AE0F3A11D04117200F22345 /* RHKRhapsody+DataProvider.swift in Sources */,
+				1AE0F3B71D043E7D00F22345 /* NowPlayingViewController.swift in Sources */,
 				1A7D5A8D1D031D15002017D6 /* LoginViewModel.swift in Sources */,
 				1AC5CEAA1D020974005E2F68 /* AppDelegate.swift in Sources */,
 				1AE0F3A71D041E7800F22345 /* PlayerViewModel.swift in Sources */,

@@ -34,17 +34,17 @@ class LoginViewModel {
         let activityIndicator = ActivityIndicator()
         loggingIn = activityIndicator.asObservable()
         loginTap.withLatestFrom(usernameAndPassword)
-            .flatMapLatest { (username, password) -> Observable<RHKSession?> in
+            .flatMapLatest { (username, password) -> Observable<RHKRhapsody?> in
                 return loginController.login(username, password: password)
                     .catchErrorJustReturn(nil)
                     .trackActivity(activityIndicator)
             }.asDriver(onErrorJustReturn: nil)
-            .driveNext { session in
-                guard let token = session?.token.accessToken else {
+            .driveNext { rhapsody in
+                guard let rhapsody = rhapsody else {
                     print("Ej")
                     return
                 }
-                navigationService.pushPlayer(token, rhapsody: loginController.rhapsody)
+                navigationService.pushPlayer(rhapsody)
             }.addDisposableTo(bag)
     }
     

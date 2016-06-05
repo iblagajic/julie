@@ -17,15 +17,12 @@ class LoginController {
     
     let apiKey = "ODUzZTc4MTctNGY4Ni00MzdlLWEwMzEtMTBhZDZmZjg2M2Fj"
     let apiSecret = "YzMxNWVkNjQtMDU0NS00NDI0LWFlNGYtMDFhYjBkMWI3M2M2"
-    let rhapsody: RHKRhapsody
+    
     let session = NSURLSession.sharedSession()
     let bag = DisposeBag()
     
-    init() {
-        rhapsody = RHKRhapsody(consumerKey: apiKey, consumerSecret: apiSecret)
-    }
-    
-    func login(username: String, password: String) -> Observable<RHKSession?> {
+    func login(username: String, password: String) -> Observable<RHKRhapsody?> {
+        let rhapsody = RHKRhapsody(consumerKey: apiKey, consumerSecret: apiSecret)
         let request = NSMutableURLRequest()
         request.URL = NSURL(string: "https://api.rhapsody.com/oauth/token")
         request.HTTPMethod = "POST"
@@ -37,10 +34,12 @@ class LoginController {
         }
         let authEncoded = authData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
         request.setValue("Basic \(authEncoded)", forHTTPHeaderField: "Authorization")
-        return session.rx_JSON(request).flatMap(openSession)
+        return session.rx_JSON(request).flatMap{ response -> Observable<RHKRhapsody?> in
+            return self.openSession(rhapsody, loginResponse: response)
+        }
     }
     
-    private func openSession(loginResponse: AnyObject) -> Observable<RHKSession?> {
+    private func openSession(rhapsody: RHKRhapsody, loginResponse: AnyObject) -> Observable<RHKRhapsody?> {
         return Observable.create { observer -> Disposable in
             guard let accessToken = loginResponse["access_token"] as? String,
                 refreshToken = loginResponse["refresh_token"] as? String,
@@ -50,9 +49,9 @@ class LoginController {
             }
             let expirationDate = NSDate().dateByAddingTimeInterval(expirationInterval)
             let token = RHKOAuthToken(accessToken: accessToken, refreshToken: refreshToken, expirationDate: expirationDate)
-            self.rhapsody.openSessionWithToken(token) { session, error in
+            rhapsody.openSessionWithToken(token) { session, error in
                 if (session.isOpen) {
-                    observer.onNext(session)
+                    observer.onNext(rhapsody)
                 } else {
                     observer.onError(LoginError.InvalidToken)
                 }

@@ -14,9 +14,17 @@ class PlayerViewModel {
     
     private let bag = DisposeBag()
     
-    init(rhapsody: RHKRhapsody, dataProvider: DataProvider) {
-        let player = Player(rhapsody: rhapsody, dataProvider: dataProvider)
-        playTap.subscribeNext(player.startPlaying).addDisposableTo(bag)
+    init(rhapsody: RHKRhapsody, navigationService: NavigationService) {
+        let player = Player(rhapsody: rhapsody)
+        playTap.flatMap { () -> Observable<Void> in
+            player.startPlaying()
+            return rhapsody.rx_nowPlaying()
+                .filter { $0 != nil }
+                .take(1)
+                .map { _ in () }
+        }.subscribeNext {
+            navigationService.pushNowPlaying(rhapsody)
+        }.addDisposableTo(bag)
     }
     
 }

@@ -18,12 +18,19 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = UIColor.standardBackgroundColor()
         
+        setup()
+        setStyle()
+    }
+    
+    func setup() {
         activityIndicatorContainer.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.3)
         activityIndicatorContainer.addSubview(activityIndicator)
         view.addSubview(activityIndicatorContainer)
+    }
+    
+    func setStyle() {
+        view.backgroundColor = UIColor.standardBackgroundColor()
     }
     
     func showLoading(show: Bool) {
