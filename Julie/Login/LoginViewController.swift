@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import RxSwift
 
-class LoginViewController: UIViewController {
+class LoginViewController: ViewController {
 
     @IBOutlet weak var emailImage: ImageView!
     @IBOutlet weak var usernameInput: TextField!
@@ -18,21 +17,17 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordInput: TextField!
     @IBOutlet weak var loginButton: RectButton!
     
-    let activityIndicatorContainer = UIView()
-    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
+    var viewModel: LoginViewModel!
     
-    let viewModel = LoginViewModel()
-    
-    let bag = DisposeBag()
+    convenience init(viewModel: LoginViewModel) {
+        self.init()
+        self.viewModel = viewModel
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         divider.backgroundColor = UIColor.primaryColor()
-        
-        activityIndicatorContainer.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.3)
-        activityIndicatorContainer.addSubview(activityIndicator)
-        view.addSubview(activityIndicatorContainer)
         
         usernameInput.rx_text
             .bindTo(viewModel.username)
@@ -58,30 +53,20 @@ class LoginViewController: UIViewController {
             .asDriver(onErrorJustReturn: false)
             .drive(loginButton.rx_enabled)
             .addDisposableTo(bag)
-        viewModel.loggedIn
-            .asDriver(onErrorJustReturn: false)
-            .driveNext { success in
-                print(success)
-            }.addDisposableTo(bag)
         viewModel.loggingIn
             .asDriver(onErrorJustReturn: false)
             .driveNext(showLoading)
             .addDisposableTo(bag)
+#if DEBUG
+        usernameInput.text = "ivan.blagajic@gmail.com"
+        passwordInput.text = "sdf69nts"
+#endif
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         activityIndicatorContainer.frame = view.bounds
         activityIndicator.center = activityIndicatorContainer.center
-    }
-    
-    private func showLoading(show: Bool) {
-        activityIndicatorContainer.hidden = !show
-        if show {
-            activityIndicator.startAnimating()
-        } else {
-            activityIndicator.stopAnimating()
-        }
     }
 
 }

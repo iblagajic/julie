@@ -19,10 +19,12 @@ class LoginViewModel {
     let validatedPassword: Observable<Bool>
     let loginEnabled: Observable<Bool>
     
-    let loggedIn: Observable<Bool>
     let loggingIn: Observable<Bool>
     
-    init() {
+    let bag = DisposeBag()
+    
+    init(navigationService: NavigationService) {
+        let loginController = LoginController()
         let usernameObservable = username.asObservable()
         let passwordObservable = password.asObservable()
         validatedUsername = usernameObservable.map(Validator.isValidEmail).shareReplay(1)
@@ -31,13 +33,19 @@ class LoginViewModel {
         let usernameAndPassword = Observable.combineLatest(usernameObservable, passwordObservable) { ($0, $1) }
         let activityIndicator = ActivityIndicator()
         loggingIn = activityIndicator.asObservable()
-        loggedIn = loginTap.debug().withLatestFrom(usernameAndPassword)
-            .flatMapLatest { (username, password) -> Observable<Bool> in
-                let loginController = LoginController()
+        loginTap.withLatestFrom(usernameAndPassword)
+            .flatMapLatest { (username, password) -> Observable<RHKSession?> in
                 return loginController.login(username, password: password)
-                    .catchErrorJustReturn(false)
+                    .catchErrorJustReturn(nil)
                     .trackActivity(activityIndicator)
-            }
+            }.asDriver(onErrorJustReturn: nil)
+            .driveNext { session in
+                guard let token = session?.token.accessToken else {
+                    print("Ej")
+                    return
+                }
+                navigationService.pushPlayer(token, rhapsody: loginController.rhapsody)
+            }.addDisposableTo(bag)
     }
     
 }

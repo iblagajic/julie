@@ -13,7 +13,6 @@ class RectButton: UIButton {
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = UIColor.actionColor()
-        layer.cornerRadius = 4.0
         tintColor = UIColor.standardBackgroundColor()
         titleLabel?.font = UIFont.h1()
     }

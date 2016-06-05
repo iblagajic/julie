@@ -15,11 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        let navigationController = UINavigationController()
-        navigationController.navigationBarHidden = true
-        navigationController.pushViewController(LoginViewController(), animated: false)
-        window?.rootViewController = navigationController
-        window?.makeKeyAndVisible()
+        let navigationService = NavigationService()
+        navigationService.pushFirstViewController(inWindow: window!)
         return true
     }
 

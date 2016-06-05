@@ -9,6 +9,10 @@
 import RxSwift
 import RxCocoa
 
+enum LoginError: ErrorType {
+    case InvalidToken
+}
+
 class LoginController {
     
     let apiKey = "ODUzZTc4MTctNGY4Ni00MzdlLWEwMzEtMTBhZDZmZjg2M2Fj"
@@ -21,7 +25,7 @@ class LoginController {
         rhapsody = RHKRhapsody(consumerKey: apiKey, consumerSecret: apiSecret)
     }
     
-    func login(username: String, password: String) -> Observable<Bool> {
+    func login(username: String, password: String) -> Observable<RHKSession?> {
         let request = NSMutableURLRequest()
         request.URL = NSURL(string: "https://api.rhapsody.com/oauth/token")
         request.HTTPMethod = "POST"
@@ -33,15 +37,28 @@ class LoginController {
         }
         let authEncoded = authData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
         request.setValue("Basic \(authEncoded)", forHTTPHeaderField: "Authorization")
-        return session.rx_JSON(request).map { response in
-            guard let response = response as? [String : AnyObject],
-                token = response["refresh_token"] else {
-                return false
-            }
-            return true
-        }
+        return session.rx_JSON(request).flatMap(openSession)
     }
     
-    
+    private func openSession(loginResponse: AnyObject) -> Observable<RHKSession?> {
+        return Observable.create { observer -> Disposable in
+            guard let accessToken = loginResponse["access_token"] as? String,
+                refreshToken = loginResponse["refresh_token"] as? String,
+                expirationInterval = loginResponse["expires_in"] as? NSTimeInterval else {
+                    observer.onError(LoginError.InvalidToken)
+                    return NopDisposable.instance
+            }
+            let expirationDate = NSDate().dateByAddingTimeInterval(expirationInterval)
+            let token = RHKOAuthToken(accessToken: accessToken, refreshToken: refreshToken, expirationDate: expirationDate)
+            self.rhapsody.openSessionWithToken(token) { session, error in
+                if (session.isOpen) {
+                    observer.onNext(session)
+                } else {
+                    observer.onError(LoginError.InvalidToken)
+                }
+            }
+            return NopDisposable.instance
+        }
+    }
     
 }
