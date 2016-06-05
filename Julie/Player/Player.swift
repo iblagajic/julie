@@ -12,10 +12,16 @@ class Player {
     
     let rhapsody: RHKRhapsody
     
+    var tracks = [RHKTrack]()
+    
     let bag = DisposeBag()
     
     init(rhapsody: RHKRhapsody) {
         self.rhapsody = rhapsody
+        rhapsody.notificationCenter.rx_notification(RHKNotificationPlaybackStateChanged)
+            .map { _ in () }
+            .subscribeNext(playerStateChanged)
+            .addDisposableTo(bag)
     }
     
     func startPlaying() {
@@ -30,10 +36,27 @@ class Player {
         }.flatMap(rhapsody.fetchTracks)
         .asDriver(onErrorJustReturn: [])
         .driveNext { [weak self] tracks in
-            // TODO: Play album
-            let firstTrack = tracks.first
-            self?.rhapsody.player.playTrack(firstTrack)
+            self?.tracks = tracks
+            self?.rhapsody.player.playTrack(tracks.first)
         }.addDisposableTo(bag)
+    }
+    
+    private func playerStateChanged() {
+        switch rhapsody.player.playbackState {
+        case RHKPlaybackStateFinished:
+            skipNext()
+        default:
+            break
+        }
+    }
+    
+    func skipNext() {
+        let currentTrack = rhapsody.player.currentTrack
+        guard let currentTrackIndex = tracks.indexOf(currentTrack) where tracks.count > currentTrackIndex + 1 else {
+            return
+        }
+        let nextTrack = tracks[currentTrackIndex + 1]
+        rhapsody.player.playTrack(nextTrack)
     }
     
 }

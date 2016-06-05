@@ -23,7 +23,7 @@ class PlayerViewModel {
                 .take(1)
                 .map { _ in () }
         }.subscribeNext {
-            navigationService.pushNowPlaying(rhapsody)
+            navigationService.pushNowPlaying(player)
         }.addDisposableTo(bag)
     }
     

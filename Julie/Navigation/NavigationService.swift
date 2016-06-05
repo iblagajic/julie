@@ -31,8 +31,8 @@ class NavigationService {
         navigationController.pushViewController(viewController, animated: animated)
     }
     
-    func pushNowPlaying(rhapsody: RHKRhapsody, animated: Bool = true) {
-        let viewModel = NowPlayingViewModel(rhapsody: rhapsody)
+    func pushNowPlaying(player: Player, animated: Bool = true) {
+        let viewModel = NowPlayingViewModel(player: player)
         let viewController = NowPlayingViewController(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: animated)
     }

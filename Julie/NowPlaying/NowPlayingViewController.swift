@@ -49,6 +49,15 @@ class NowPlayingViewController: ViewController {
             .asDriver(onErrorJustReturn: "")
             .drive(trackNameLabel.rx_text)
             .addDisposableTo(bag)
+        previousButton.rx_tap
+            .bindTo(viewModel.previousTap)
+            .addDisposableTo(bag)
+        pauseButton.rx_tap
+            .bindTo(viewModel.playPauseTap)
+            .addDisposableTo(bag)
+        nextButton.rx_tap
+            .bindTo(viewModel.nextTap)
+            .addDisposableTo(bag)
     }
     
     override func setStyle() {
