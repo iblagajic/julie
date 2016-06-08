@@ -48,4 +48,16 @@ extension RHKRhapsody {
         return player.rx_observe(RHKTrack.self, "currentTrack")
     }
     
+    func rx_state() -> Observable<RHKPlaybackState> {
+        return player.rx_observe(RHKPlaybackState.self, "playbackState").filterNil()
+    }
+    
+    func rx_progress() -> Observable<Float> {
+        return notificationCenter
+            .rx_notification("RHKNotificationPlayheadPositionChanged")
+            .map { [unowned self] _ in
+                Float(self.player.playheadPosition/self.player.currentTrackDuration)
+        }
+    }
+    
 }

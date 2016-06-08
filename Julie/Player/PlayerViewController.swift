@@ -27,12 +27,17 @@ class PlayerViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        playButton.backgroundColor = UIColor.primaryColor()
-        playButton.tintColor = UIColor.actionColor()
+        playButton.backgroundColor = .primary()
+        playButton.tintColor = .action()
         playButton.imageEdgeInsets = UIEdgeInsetsMake(0, 5.0, 0, 0)
         
         playButton.rx_tap
             .bindTo(viewModel.playTap)
+            .addDisposableTo(bag)
+        
+        viewModel.loading
+            .asDriver(onErrorJustReturn: false)
+            .driveNext(showLoading)
             .addDisposableTo(bag)
     }
 

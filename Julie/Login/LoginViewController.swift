@@ -27,7 +27,7 @@ class LoginViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        divider.backgroundColor = UIColor.primaryColor()
+        divider.backgroundColor = .primary()
         
         usernameInput.rx_text
             .bindTo(viewModel.username)
@@ -61,12 +61,6 @@ class LoginViewController: ViewController {
         usernameInput.text = "ivan.blagajic@gmail.com"
         passwordInput.text = "sdf69nts"
 #endif
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        activityIndicatorContainer.frame = view.bounds
-        activityIndicator.center = activityIndicatorContainer.center
     }
 
 }

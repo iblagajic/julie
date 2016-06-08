@@ -7,10 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A1286EB1D05C40C00B7DB67 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1286EA1D05C40C00B7DB67 /* DetailsViewController.swift */; };
+		1A1286ED1D05C51100B7DB67 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1286EC1D05C51100B7DB67 /* DetailsViewModel.swift */; };
+		1A1286EF1D05E44F00B7DB67 /* DetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1286EE1D05E44F00B7DB67 /* DetailsTableViewCell.swift */; };
+		1A1286F11D05EBBA00B7DB67 /* ObservableType+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1286F01D05EBBA00B7DB67 /* ObservableType+Custom.swift */; };
+		1A1286F31D05F5C800B7DB67 /* DetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A1286F21D05F5C800B7DB67 /* DetailsTableViewCell.xib */; };
+		1A1286F51D05FF0F00B7DB67 /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A1286F41D05FF0F00B7DB67 /* DetailsViewController.xib */; };
 		1A7D5A8B1D03192C002017D6 /* RectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7D5A8A1D03192C002017D6 /* RectButton.swift */; };
 		1A7D5A8D1D031D15002017D6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7D5A8C1D031D15002017D6 /* LoginViewModel.swift */; };
 		1A7D5A901D031E34002017D6 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7D5A8F1D031E34002017D6 /* Validator.swift */; };
 		1A7D5A931D032C4C002017D6 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7D5A921D032C4C002017D6 /* ActivityIndicator.swift */; };
+		1A7E99D01D0878DD0024BF7B /* CollectionType+Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E99CF1D0878DD0024BF7B /* CollectionType+Optional.swift */; };
 		1A7F61251D020FD400878246 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7F61241D020FD400878246 /* LoginController.swift */; };
 		1A7F612E1D0215CF00878246 /* RhapsodyKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1A7F612C1D0215CF00878246 /* RhapsodyKit.bundle */; };
 		1A7F612F1D0215CF00878246 /* RhapsodyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7F612D1D0215CF00878246 /* RhapsodyKit.framework */; };
@@ -26,6 +33,7 @@
 		1AC5CEB41D020974005E2F68 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AC5CEB21D020974005E2F68 /* LaunchScreen.storyboard */; };
 		1AC5CEC21D020AB6005E2F68 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC5CEC11D020AB6005E2F68 /* AudioToolbox.framework */; };
 		1AC5CEC41D020AC2005E2F68 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC5CEC31D020AC2005E2F68 /* CoreData.framework */; };
+		1ACCCAA41D08A4AF002DF036 /* FillableRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACCCAA31D08A4AF002DF036 /* FillableRoundButton.swift */; };
 		1AE0F39A1D03431800F22345 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE0F3991D03431800F22345 /* Player.swift */; };
 		1AE0F39D1D03438C00F22345 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE0F39B1D03438C00F22345 /* PlayerViewController.swift */; };
 		1AE0F39E1D03438C00F22345 /* PlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AE0F39C1D03438C00F22345 /* PlayerViewController.xib */; };
@@ -41,10 +49,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A1286EA1D05C40C00B7DB67 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		1A1286EC1D05C51100B7DB67 /* DetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
+		1A1286EE1D05E44F00B7DB67 /* DetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsTableViewCell.swift; sourceTree = "<group>"; };
+		1A1286F01D05EBBA00B7DB67 /* ObservableType+Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ObservableType+Custom.swift"; sourceTree = "<group>"; };
+		1A1286F21D05F5C800B7DB67 /* DetailsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailsTableViewCell.xib; sourceTree = "<group>"; };
+		1A1286F41D05FF0F00B7DB67 /* DetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
 		1A7D5A8A1D03192C002017D6 /* RectButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RectButton.swift; sourceTree = "<group>"; };
 		1A7D5A8C1D031D15002017D6 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		1A7D5A8F1D031E34002017D6 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		1A7D5A921D032C4C002017D6 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		1A7E99CF1D0878DD0024BF7B /* CollectionType+Optional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectionType+Optional.swift"; sourceTree = "<group>"; };
 		1A7F61241D020FD400878246 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		1A7F612C1D0215CF00878246 /* RhapsodyKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RhapsodyKit.bundle; sourceTree = "<group>"; };
 		1A7F612D1D0215CF00878246 /* RhapsodyKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RhapsodyKit.framework; sourceTree = "<group>"; };
@@ -63,6 +78,7 @@
 		1AC5CEC11D020AB6005E2F68 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		1AC5CEC31D020AC2005E2F68 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		1AC5CEC51D020AE0005E2F68 /* Julie-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Julie-Bridging-Header.h"; sourceTree = "<group>"; };
+		1ACCCAA31D08A4AF002DF036 /* FillableRoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillableRoundButton.swift; sourceTree = "<group>"; };
 		1AE0F3991D03431800F22345 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		1AE0F39B1D03438C00F22345 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		1AE0F39C1D03438C00F22345 /* PlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerViewController.xib; sourceTree = "<group>"; };
@@ -94,13 +110,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A1286E91D05C3E100B7DB67 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				1A1286EE1D05E44F00B7DB67 /* DetailsTableViewCell.swift */,
+				1A1286F21D05F5C800B7DB67 /* DetailsTableViewCell.xib */,
+				1A1286EA1D05C40C00B7DB67 /* DetailsViewController.swift */,
+				1A1286EC1D05C51100B7DB67 /* DetailsViewModel.swift */,
+				1A1286F41D05FF0F00B7DB67 /* DetailsViewController.xib */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
 		1A7D5A911D032C4C002017D6 /* Rx */ = {
 			isa = PBXGroup;
 			children = (
 				1A7D5A921D032C4C002017D6 /* ActivityIndicator.swift */,
 				1AE0F3B21D04373600F22345 /* RHKRhapsody+Rx.swift */,
+				1A1286F01D05EBBA00B7DB67 /* ObservableType+Custom.swift */,
 			);
 			path = Rx;
+			sourceTree = "<group>";
+		};
+		1A7E99CE1D08789F0024BF7B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1A7E99CF1D0878DD0024BF7B /* CollectionType+Optional.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		1A7F61231D020FC900878246 /* Login */ = {
@@ -124,6 +161,7 @@
 				1AA116FD1D03154800A404D7 /* UIColor+Julie.swift */,
 				1AA116FF1D03155900A404D7 /* UIFont+Julie.swift */,
 				1AA117011D03157E00A404D7 /* ViewController.swift */,
+				1ACCCAA31D08A4AF002DF036 /* FillableRoundButton.swift */,
 			);
 			path = Appereance;
 			sourceTree = "<group>";
@@ -155,7 +193,9 @@
 				1AC5CEB01D020974005E2F68 /* Assets.xcassets */,
 				1AA116FA1D0306B300A404D7 /* Appereance */,
 				1AE0F39F1D04116400F22345 /* Data */,
+				1A1286E91D05C3E100B7DB67 /* Details */,
 				1AC5CEB21D020974005E2F68 /* LaunchScreen.storyboard */,
+				1A7E99CE1D08789F0024BF7B /* Extensions */,
 				1A7F61231D020FC900878246 /* Login */,
 				1AE0F3A21D04140400F22345 /* Navigation */,
 				1AE0F3B41D043E6600F22345 /* NowPlaying */,
@@ -299,6 +339,8 @@
 				1A7F612E1D0215CF00878246 /* RhapsodyKit.bundle in Resources */,
 				1AC5CEB41D020974005E2F68 /* LaunchScreen.storyboard in Resources */,
 				1AC5CEB11D020974005E2F68 /* Assets.xcassets in Resources */,
+				1A1286F31D05F5C800B7DB67 /* DetailsTableViewCell.xib in Resources */,
+				1A1286F51D05FF0F00B7DB67 /* DetailsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,12 +402,18 @@
 				1AA116F61D03040800A404D7 /* LoginViewController.swift in Sources */,
 				1A7F61251D020FD400878246 /* LoginController.swift in Sources */,
 				1AA116FC1D0307FD00A404D7 /* TextField.swift in Sources */,
+				1A1286EB1D05C40C00B7DB67 /* DetailsViewController.swift in Sources */,
 				1AE0F3A41D04141200F22345 /* NavigationService.swift in Sources */,
 				1AE0F39D1D03438C00F22345 /* PlayerViewController.swift in Sources */,
+				1A1286F11D05EBBA00B7DB67 /* ObservableType+Custom.swift in Sources */,
+				1A1286EF1D05E44F00B7DB67 /* DetailsTableViewCell.swift in Sources */,
+				1ACCCAA41D08A4AF002DF036 /* FillableRoundButton.swift in Sources */,
 				1AA117041D03172500A404D7 /* ImageView.swift in Sources */,
+				1A7E99D01D0878DD0024BF7B /* CollectionType+Optional.swift in Sources */,
 				1A7D5A931D032C4C002017D6 /* ActivityIndicator.swift in Sources */,
 				1AE0F3AE1D04289E00F22345 /* RHKTrack+JSON.swift in Sources */,
 				1AE0F39A1D03431800F22345 /* Player.swift in Sources */,
+				1A1286ED1D05C51100B7DB67 /* DetailsViewModel.swift in Sources */,
 				1AA116FE1D03154800A404D7 /* UIColor+Julie.swift in Sources */,
 				1A7D5A901D031E34002017D6 /* Validator.swift in Sources */,
 				1AE0F3BA1D04982C00F22345 /* NowPlayingViewModel.swift in Sources */,
@@ -487,6 +535,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks/RhapsodyKit",
@@ -514,6 +563,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks/RhapsodyKit",

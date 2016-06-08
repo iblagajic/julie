@@ -35,25 +35,28 @@ class LoginController {
         let authEncoded = authData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
         request.setValue("Basic \(authEncoded)", forHTTPHeaderField: "Authorization")
         return session.rx_JSON(request).flatMap{ response -> Observable<RHKRhapsody?> in
-            return self.openSession(rhapsody, loginResponse: response)
+            return self.handleLoginResponse(rhapsody, loginResponse: response)
         }
     }
     
-    private func openSession(rhapsody: RHKRhapsody, loginResponse: AnyObject) -> Observable<RHKRhapsody?> {
+    private func handleLoginResponse(rhapsody: RHKRhapsody, loginResponse: AnyObject) -> Observable<RHKRhapsody?> {
+        guard let accessToken = loginResponse["access_token"] as? String,
+            refreshToken = loginResponse["refresh_token"] as? String,
+            expirationInterval = loginResponse["expires_in"] as? NSTimeInterval else {
+                return Observable.just(nil)
+        }
+        let expirationDate = NSDate().dateByAddingTimeInterval(expirationInterval)
+        let token = RHKOAuthToken(accessToken: accessToken, refreshToken: refreshToken, expirationDate: expirationDate)
+        return openSession(rhapsody, token: token)
+    }
+    
+    private func openSession(rhapsody: RHKRhapsody, token: RHKOAuthToken) -> Observable<RHKRhapsody?> {
         return Observable.create { observer -> Disposable in
-            guard let accessToken = loginResponse["access_token"] as? String,
-                refreshToken = loginResponse["refresh_token"] as? String,
-                expirationInterval = loginResponse["expires_in"] as? NSTimeInterval else {
-                    observer.onError(LoginError.InvalidToken)
-                    return NopDisposable.instance
-            }
-            let expirationDate = NSDate().dateByAddingTimeInterval(expirationInterval)
-            let token = RHKOAuthToken(accessToken: accessToken, refreshToken: refreshToken, expirationDate: expirationDate)
             rhapsody.openSessionWithToken(token) { session, error in
-                if (session.isOpen) {
-                    observer.onNext(rhapsody)
+                if let error = error {
+                    observer.onError(error)
                 } else {
-                    observer.onError(LoginError.InvalidToken)
+                    observer.onNext(rhapsody)
                 }
             }
             return NopDisposable.instance

@@ -32,8 +32,14 @@ class NavigationService {
     }
     
     func pushNowPlaying(player: Player, animated: Bool = true) {
-        let viewModel = NowPlayingViewModel(player: player)
+        let viewModel = NowPlayingViewModel(player: player, navigationService: self)
         let viewController = NowPlayingViewController(viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: animated)
+    }
+    
+    func pushDetails(player: Player, animated: Bool = true) {
+        let viewModel = DetailsViewModel(player: player)
+        let viewController = DetailsViewController(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: animated)
     }
     

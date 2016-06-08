@@ -23,14 +23,21 @@ class ViewController: UIViewController {
         setStyle()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        activityIndicatorContainer.frame = view.bounds
+        activityIndicator.center = activityIndicatorContainer.center
+    }
+    
     func setup() {
         activityIndicatorContainer.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.3)
         activityIndicatorContainer.addSubview(activityIndicator)
+        activityIndicatorContainer.hidden = true
         view.addSubview(activityIndicatorContainer)
     }
     
     func setStyle() {
-        view.backgroundColor = UIColor.standardBackgroundColor()
+        view.backgroundColor = .standardBackground()
     }
     
     func showLoading(show: Bool) {

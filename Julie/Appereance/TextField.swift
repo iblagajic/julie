@@ -12,9 +12,9 @@ class TextField: UITextField {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        font = UIFont.input()
+        font = .input()
         borderStyle = .None
-        textColor = UIColor.primaryColor()
+        textColor = .primary()
     }
 
 }
