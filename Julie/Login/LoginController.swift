@@ -9,55 +9,52 @@
 import RxSwift
 import RxCocoa
 
-enum LoginError: ErrorType {
-    case InvalidToken
-}
-
 class LoginController {
     
-    let apiKey = "ODUzZTc4MTctNGY4Ni00MzdlLWEwMzEtMTBhZDZmZjg2M2Fj"
-    let apiSecret = "YzMxNWVkNjQtMDU0NS00NDI0LWFlNGYtMDFhYjBkMWI3M2M2"
-    
+    let rhapsody: RHKRhapsody
     let session = NSURLSession.sharedSession()
     let bag = DisposeBag()
     
-    func login(username: String, password: String) -> Observable<RHKRhapsody?> {
-        let rhapsody = RHKRhapsody(consumerKey: apiKey, consumerSecret: apiSecret)
+    init(rhapsody: RHKRhapsody) {
+        self.rhapsody = rhapsody
+    }
+    
+    func login(username: String, password: String) -> Observable<Bool> {
         let request = NSMutableURLRequest()
         request.URL = NSURL(string: "https://api.rhapsody.com/oauth/token")
         request.HTTPMethod = "POST"
         let params = "username=\(username)&password=\(password)&grant_type=password"
         request.HTTPBody = params.dataUsingEncoding(NSUTF8StringEncoding)
-        let auth = "\(apiKey):\(apiSecret)"
+        let auth = "\(rhapsody.consumerKey):\(rhapsody.consumerSecret)"
         guard let authData = auth.dataUsingEncoding(NSUTF8StringEncoding) else {
-            return Observable.empty()
+            return Observable.just(false)
         }
         let authEncoded = authData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
         request.setValue("Basic \(authEncoded)", forHTTPHeaderField: "Authorization")
-        return session.rx_JSON(request).flatMap{ response -> Observable<RHKRhapsody?> in
-            return self.handleLoginResponse(rhapsody, loginResponse: response)
-        }
+        return session.rx_JSON(request)
+            .flatMap(handleLoginResponse)
     }
     
-    private func handleLoginResponse(rhapsody: RHKRhapsody, loginResponse: AnyObject) -> Observable<RHKRhapsody?> {
+    private func handleLoginResponse(loginResponse: AnyObject) -> Observable<Bool> {
         guard let accessToken = loginResponse["access_token"] as? String,
             refreshToken = loginResponse["refresh_token"] as? String,
             expirationInterval = loginResponse["expires_in"] as? NSTimeInterval else {
-                return Observable.just(nil)
+                return Observable.just(false)
         }
         let expirationDate = NSDate().dateByAddingTimeInterval(expirationInterval)
         let token = RHKOAuthToken(accessToken: accessToken, refreshToken: refreshToken, expirationDate: expirationDate)
-        return openSession(rhapsody, token: token)
+        return openSession(token)
     }
     
-    private func openSession(rhapsody: RHKRhapsody, token: RHKOAuthToken) -> Observable<RHKRhapsody?> {
-        return Observable.create { observer -> Disposable in
-            rhapsody.openSessionWithToken(token) { session, error in
-                if let error = error {
-                    observer.onError(error)
+    private func openSession(token: RHKOAuthToken) -> Observable<Bool> {
+        return Observable.create { [weak self] observer -> Disposable in
+            self?.rhapsody.openSessionWithToken(token) { session, error in
+                if let _ = error {
+                    observer.onNext(false)
                 } else {
-                    observer.onNext(rhapsody)
+                    observer.onNext(true)
                 }
+                observer.onCompleted()
             }
             return NopDisposable.instance
         }

@@ -23,8 +23,7 @@ class LoginViewModel {
     
     let bag = DisposeBag()
     
-    init(navigationService: NavigationService) {
-        let loginController = LoginController()
+    init(loginController: LoginController, navigationService: NavigationService) {
         let usernameObservable = username.asObservable()
         let passwordObservable = password.asObservable()
         validatedUsername = usernameObservable.map(Validator.isValidEmail).shareReplay(1)
@@ -34,17 +33,18 @@ class LoginViewModel {
         let activityIndicator = ActivityIndicator()
         loggingIn = activityIndicator.asObservable()
         loginTap.withLatestFrom(usernameAndPassword)
-            .flatMapLatest { (username, password) -> Observable<RHKRhapsody?> in
+            .flatMapLatest { (username, password) -> Observable<Bool> in
                 return loginController.login(username, password: password)
-                    .catchErrorJustReturn(nil)
+                    .catchErrorJustReturn(false)
                     .trackActivity(activityIndicator)
-            }.asDriver(onErrorJustReturn: nil)
-            .driveNext { rhapsody in
-                guard let rhapsody = rhapsody else {
-                    print("Ej")
-                    return
+            }.asDriver(onErrorJustReturn: false)
+            .driveNext { success in
+                switch(success) {
+                case true:
+                    navigationService.pushPlayer()
+                case false:
+                    print("Login failed")
                 }
-                navigationService.pushPlayer(rhapsody)
             }.addDisposableTo(bag)
     }
     

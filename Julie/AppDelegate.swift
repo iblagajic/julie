@@ -11,12 +11,10 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        let navigationService = NavigationService()
-        navigationService.pushFirstViewController(inWindow: window!)
+        let dependencies = Dependencies()
+        let launchController = dependencies.launchController
+        launchController.reopenOrPresentLogin()
         return true
     }
 

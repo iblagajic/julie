@@ -35,7 +35,7 @@ extension UIFont {
     }
     
     static func microBold() -> UIFont {
-        return bold(12.0)
+        return bold(14.0)
     }
     
     static func bigRegular() -> UIFont {

@@ -3,17 +3,22 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="Julie" customModuleProvider="target">
             <connections>
-                <outlet property="divider" destination="pe4-FV-Rgu" id="7Oa-03-hV2"/>
+                <outlet property="bottomConstraint" destination="J51-lJ-bN9" id="PgN-Zh-204"/>
+                <outlet property="container" destination="045-5T-CcX" id="vVd-f2-2KQ"/>
                 <outlet property="emailImage" destination="0au-eE-fiC" id="xft-1W-XLO"/>
                 <outlet property="loginButton" destination="aOd-dZ-JXm" id="0Ch-Fd-Xz6"/>
+                <outlet property="logo" destination="bbx-vJ-NMK" id="p5e-0K-oS7"/>
                 <outlet property="passwordImage" destination="uRa-Km-nrr" id="Yfo-OM-xsu"/>
                 <outlet property="passwordInput" destination="CvY-2L-SzO" id="pDL-Wv-P57"/>
                 <outlet property="usernameInput" destination="4up-5d-Yvv" id="dxI-pa-reQ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outletCollection property="dividers" destination="pe4-FV-Rgu" collectionClass="NSMutableArray" id="shl-d9-aKo"/>
+                <outletCollection property="dividers" destination="9RY-EX-eBg" collectionClass="NSMutableArray" id="02M-KB-eWo"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -21,11 +26,14 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBackground" translatesAutoresizingMaskIntoConstraints="NO" id="pRx-Mb-f7g">
+                <imageView userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBackground" translatesAutoresizingMaskIntoConstraints="NO" id="pRx-Mb-f7g">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" image="julie" translatesAutoresizingMaskIntoConstraints="NO" id="bbx-vJ-NMK" customClass="ImageView" customModule="Julie" customModuleProvider="target">
+                    <rect key="frame" x="258" y="101.5" width="83" height="127"/>
+                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="045-5T-CcX">
-                    <rect key="frame" x="22" y="259" width="557" height="83"/>
+                    <rect key="frame" x="22" y="371" width="557" height="174"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email" translatesAutoresizingMaskIntoConstraints="NO" id="0au-eE-fiC" customClass="ImageView" customModule="Julie" customModuleProvider="target">
                             <rect key="frame" x="4" y="4" width="25" height="25"/>
@@ -36,13 +44,13 @@
                                 <constraint firstAttribute="height" constant="33" id="y0Y-nP-NhK"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" enablesReturnKeyAutomatically="YES"/>
                             <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
                                 <rect key="frame" x="49" y="0.0" width="341" height="25"/>
                             </variation>
                         </textField>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pe4-FV-Rgu">
-                            <rect key="frame" x="0.0" y="41" width="557" height="1"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pe4-FV-Rgu" userLabel="Divider">
+                            <rect key="frame" x="4" y="34" width="549" height="1"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="u0q-0w-OAu"/>
@@ -52,38 +60,72 @@
                             </variation>
                         </view>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password" translatesAutoresizingMaskIntoConstraints="NO" id="uRa-Km-nrr" customClass="ImageView" customModule="Julie" customModuleProvider="target">
-                            <rect key="frame" x="5" y="55" width="23" height="23"/>
+                            <rect key="frame" x="5" y="56" width="23" height="23"/>
                         </imageView>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CvY-2L-SzO" customClass="TextField" customModule="Julie" customModuleProvider="target">
-                            <rect key="frame" x="51" y="50" width="502" height="33"/>
+                            <rect key="frame" x="51" y="51" width="502" height="33"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" secureTextEntry="YES"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                             <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
                                 <rect key="frame" x="49" y="42" width="341" height="25"/>
                             </variation>
                         </textField>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9RY-EX-eBg" userLabel="Divider">
+                            <rect key="frame" x="5" y="85" width="548" height="1"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="m2j-sU-fdy"/>
+                            </constraints>
+                            <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
+                                <rect key="frame" x="0.0" y="33" width="394" height="1"/>
+                            </variation>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aOd-dZ-JXm" customClass="RectButton" customModule="Julie" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="119" width="557" height="55"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="55" id="uaO-Zp-he4"/>
+                            </constraints>
+                            <state key="normal" title="Login"/>
+                            <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
+                                <rect key="frame" x="203" y="450" width="394" height="44"/>
+                            </variation>
+                        </button>
                     </subviews>
                     <constraints>
                         <constraint firstItem="0au-eE-fiC" firstAttribute="leading" secondItem="045-5T-CcX" secondAttribute="leading" constant="4" id="0Td-Pl-aPD"/>
                         <constraint firstItem="CvY-2L-SzO" firstAttribute="width" secondItem="4up-5d-Yvv" secondAttribute="width" id="2t5-8n-TMc"/>
+                        <constraint firstItem="9RY-EX-eBg" firstAttribute="trailing" secondItem="CvY-2L-SzO" secondAttribute="trailing" id="9KH-d8-ZHM"/>
+                        <constraint firstItem="9RY-EX-eBg" firstAttribute="top" secondItem="CvY-2L-SzO" secondAttribute="bottom" constant="1" id="CdT-B5-uUb"/>
                         <constraint firstItem="4up-5d-Yvv" firstAttribute="top" secondItem="045-5T-CcX" secondAttribute="top" id="DMh-Bk-NIQ"/>
                         <constraint firstAttribute="trailing" secondItem="pe4-FV-Rgu" secondAttribute="trailing" id="FEB-TO-l7s"/>
                         <constraint firstItem="CvY-2L-SzO" firstAttribute="leading" secondItem="4up-5d-Yvv" secondAttribute="leading" id="K0E-O1-YTX"/>
+                        <constraint firstAttribute="bottom" secondItem="9RY-EX-eBg" secondAttribute="bottom" id="NzC-Uh-y4M"/>
                         <constraint firstAttribute="trailing" secondItem="4up-5d-Yvv" secondAttribute="trailing" constant="4" id="Sm7-pS-NJq"/>
                         <constraint firstItem="CvY-2L-SzO" firstAttribute="height" secondItem="4up-5d-Yvv" secondAttribute="height" id="TNA-4W-FP2"/>
                         <constraint firstItem="pe4-FV-Rgu" firstAttribute="leading" secondItem="045-5T-CcX" secondAttribute="leading" id="TSL-vF-HQi"/>
                         <constraint firstItem="0au-eE-fiC" firstAttribute="centerY" secondItem="4up-5d-Yvv" secondAttribute="centerY" id="W8R-q5-lPa"/>
                         <constraint firstItem="uRa-Km-nrr" firstAttribute="centerY" secondItem="CvY-2L-SzO" secondAttribute="centerY" id="XOb-8P-2fM"/>
-                        <constraint firstItem="CvY-2L-SzO" firstAttribute="top" secondItem="pe4-FV-Rgu" secondAttribute="bottom" constant="8" id="ZEZ-I5-Tsw"/>
-                        <constraint firstItem="pe4-FV-Rgu" firstAttribute="top" secondItem="4up-5d-Yvv" secondAttribute="bottom" constant="8" id="d5r-XR-etz"/>
+                        <constraint firstItem="CvY-2L-SzO" firstAttribute="top" secondItem="pe4-FV-Rgu" secondAttribute="bottom" constant="16" id="ZEZ-I5-Tsw"/>
+                        <constraint firstAttribute="bottom" secondItem="aOd-dZ-JXm" secondAttribute="bottom" id="ZzZ-cp-sOv"/>
+                        <constraint firstItem="9RY-EX-eBg" firstAttribute="leading" secondItem="uRa-Km-nrr" secondAttribute="leading" id="cJS-11-Len"/>
+                        <constraint firstItem="pe4-FV-Rgu" firstAttribute="leading" secondItem="0au-eE-fiC" secondAttribute="leading" id="cP8-Yi-8AI"/>
+                        <constraint firstItem="pe4-FV-Rgu" firstAttribute="top" secondItem="4up-5d-Yvv" secondAttribute="bottom" constant="1" id="d5r-XR-etz"/>
                         <constraint firstAttribute="bottom" secondItem="CvY-2L-SzO" secondAttribute="bottom" id="iQg-eF-ri4"/>
+                        <constraint firstItem="aOd-dZ-JXm" firstAttribute="top" secondItem="9RY-EX-eBg" secondAttribute="bottom" constant="33" id="j5Z-KF-jcM"/>
                         <constraint firstItem="4up-5d-Yvv" firstAttribute="leading" secondItem="0au-eE-fiC" secondAttribute="trailing" constant="22" id="jXO-7f-eFc"/>
+                        <constraint firstAttribute="trailing" secondItem="aOd-dZ-JXm" secondAttribute="trailing" id="kNa-GO-PNm"/>
                         <constraint firstAttribute="width" constant="394" id="oiM-Va-WQW"/>
+                        <constraint firstItem="pe4-FV-Rgu" firstAttribute="trailing" secondItem="4up-5d-Yvv" secondAttribute="trailing" id="pjb-WP-dHC"/>
+                        <constraint firstItem="aOd-dZ-JXm" firstAttribute="leading" secondItem="045-5T-CcX" secondAttribute="leading" id="xcg-r8-3Qu"/>
                         <constraint firstItem="uRa-Km-nrr" firstAttribute="centerX" secondItem="0au-eE-fiC" secondAttribute="centerX" id="xor-0A-If6"/>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="oiM-Va-WQW"/>
+                            <exclude reference="FEB-TO-l7s"/>
+                            <exclude reference="TSL-vF-HQi"/>
+                            <exclude reference="iQg-eF-ri4"/>
+                            <exclude reference="NzC-Uh-y4M"/>
                         </mask>
                     </variation>
                     <variation key="widthClass=regular">
@@ -95,40 +137,38 @@
                         <rect key="frame" x="203" y="367" width="394" height="67"/>
                     </variation>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aOd-dZ-JXm" customClass="RectButton" customModule="Julie" customModuleProvider="target">
-                    <rect key="frame" x="22" y="375" width="556" height="44"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="44" id="uaO-Zp-he4"/>
-                    </constraints>
-                    <state key="normal" title="Login"/>
-                    <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
-                        <rect key="frame" x="203" y="450" width="394" height="44"/>
-                    </variation>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="045-5T-CcX" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Bjl-AS-N2M"/>
+                <constraint firstItem="045-5T-CcX" firstAttribute="top" relation="greaterThanOrEqual" secondItem="bbx-vJ-NMK" secondAttribute="bottom" constant="55" id="03c-dK-oJd"/>
+                <constraint firstItem="bbx-vJ-NMK" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Aun-se-PE6"/>
+                <constraint firstItem="045-5T-CcX" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="1.2" id="Bjl-AS-N2M"/>
+                <constraint firstAttribute="bottom" secondItem="045-5T-CcX" secondAttribute="bottom" constant="55" id="J51-lJ-bN9"/>
                 <constraint firstItem="pRx-Mb-f7g" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="N9g-eW-d9n"/>
                 <constraint firstItem="pRx-Mb-f7g" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="QG4-1U-vVJ"/>
-                <constraint firstItem="aOd-dZ-JXm" firstAttribute="top" secondItem="045-5T-CcX" secondAttribute="bottom" constant="33" id="Ukc-me-bX3"/>
-                <constraint firstItem="aOd-dZ-JXm" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="WCY-GN-aVz"/>
                 <constraint firstAttribute="trailing" secondItem="pRx-Mb-f7g" secondAttribute="trailing" id="bgx-Uy-qM7"/>
                 <constraint firstItem="045-5T-CcX" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="cMn-be-mco"/>
                 <constraint firstItem="045-5T-CcX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="22" id="dof-uB-FVJ"/>
+                <constraint firstItem="bbx-vJ-NMK" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.55" priority="999" id="e1Y-qf-s9k"/>
                 <constraint firstAttribute="bottom" secondItem="pRx-Mb-f7g" secondAttribute="bottom" id="m1f-sa-pLe"/>
-                <constraint firstItem="aOd-dZ-JXm" firstAttribute="leading" secondItem="045-5T-CcX" secondAttribute="leading" id="qCO-XD-qtt"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="Bjl-AS-N2M"/>
+                </mask>
+            </variation>
             <variation key="widthClass=regular">
                 <mask key="constraints">
                     <exclude reference="dof-uB-FVJ"/>
                 </mask>
             </variation>
+            <point key="canvasLocation" x="243" y="226"/>
         </view>
     </objects>
     <resources>
         <image name="email" width="25" height="25"/>
-        <image name="loginBackground" width="960" height="640"/>
+        <image name="julie" width="83" height="127"/>
+        <image name="loginBackground" width="960" height="639"/>
         <image name="password" width="23" height="23"/>
     </resources>
 </document>

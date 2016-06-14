@@ -41,7 +41,7 @@ class NowPlayingViewModel {
         canPrevious = nowPlayingTrack.map { _ in player.hasPrevious }
         canNext = nowPlayingTrack.map { _ in player.hasNext }
         canPause = rhapsody.rx_state().map { return $0 == RHKPlaybackStatePlaying }
-        progress = rhapsody.rx_progress().map(CGFloat.init)
+        progress = rhapsody.rx_progress().map { CGFloat($0) }
         nextTap.subscribeNext(player.next).addDisposableTo(bag)
         albumImageTap.subscribeNext {
             navigationService.pushDetails(player)

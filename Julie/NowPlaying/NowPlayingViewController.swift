@@ -26,8 +26,23 @@ class NowPlayingViewController: ViewController {
         self.viewModel = viewModel
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func setStyle() {
+        super.setStyle()
+        
+        nowPlayingLabel.font = .h1()
+        artistNameLabel.font = .microBold()
+        trackNameLabel.font = .bigRegular()
+        nowPlayingLabel.textColor = .primary()
+        artistNameLabel.textColor = .primary()
+        trackNameLabel.textColor = .primary()
+        albumImageButton.tintColor = .action()
+        previousButton.tintColor = .primary()
+        playPauseButton.tintColor = .primary()
+        nextButton.tintColor = .primary()
+    }
+    
+    override func setup() {
+        super.setup()
         
         viewModel.albumImage
             .asDriver(onErrorJustReturn: nil)
@@ -78,21 +93,6 @@ class NowPlayingViewController: ViewController {
         albumImageButton.rx_tap
             .bindTo(viewModel.albumImageTap)
             .addDisposableTo(bag)
-    }
-    
-    override func setStyle() {
-        super.setStyle()
-        
-        nowPlayingLabel.font = .h2()
-        artistNameLabel.font = .microBold()
-        trackNameLabel.font = .bigRegular()
-        nowPlayingLabel.textColor = .primary()
-        artistNameLabel.textColor = .primary()
-        trackNameLabel.textColor = .primary()
-        albumImageButton.tintColor = .action()
-        previousButton.tintColor = .primary()
-        playPauseButton.tintColor = .primary()
-        nextButton.tintColor = .primary()
     }
 
 }

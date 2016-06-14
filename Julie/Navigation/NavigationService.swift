@@ -8,25 +8,40 @@
 
 import UIKit
 
+enum FirstViewController {
+    case Login
+    case Player
+}
+
 class NavigationService {
     
     private let navigationController = UINavigationController()
+    var $: Dependencies!
+    let window: UIWindow
     
-    func pushFirstViewController(inWindow window: UIWindow) {
+    init() {
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+    }
+    
+    func pushFirstViewController(ofType: FirstViewController) {
         navigationController.navigationBarHidden = true
-        pushLogin()
+        if (ofType == .Login) {
+            pushLogin()
+        } else {
+            pushPlayer()
+        }
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
     }
     
     func pushLogin(animated: Bool = true) {
-        let viewModel = LoginViewModel(navigationService: self)
+        let viewModel = LoginViewModel(loginController: $.loginController, navigationService: self)
         let viewController = LoginViewController(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: animated)
     }
     
-    func pushPlayer(rhapsody:RHKRhapsody, animated: Bool = true) {
-        let viewModel = PlayerViewModel(rhapsody: rhapsody, navigationService: self)
+    func pushPlayer(animated: Bool = true) {
+        let viewModel = PlayerViewModel(rhapsody: $.rhapsody, navigationService: self)
         let viewController = PlayerViewController(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: animated)
     }

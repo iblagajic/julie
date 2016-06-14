@@ -70,7 +70,13 @@ class FillableRoundButton: UIButton {
         if progress < 0 || progress > 1 {
             print("Warning: progress should be between 0 and 1. (progress: \(progress))")
         }
+        let oldProgress = fillCircle?.strokeEnd
+        let animation = CABasicAnimation(keyPath: "strokeEnd")
+        animation.duration = 1.0
+        animation.fromValue = oldProgress
         fillCircle?.strokeEnd = progress
+        animation.removedOnCompletion = true
+        fillCircle?.addAnimation(animation, forKey: nil)
     }
     
 }

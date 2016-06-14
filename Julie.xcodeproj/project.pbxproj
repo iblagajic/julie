@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A1147CA1D0DE1B30062F816 /* LaunchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1147C91D0DE1B30062F816 /* LaunchController.swift */; };
+		1A1147CC1D0DECE80062F816 /* Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1147CB1D0DECE80062F816 /* Dependencies.swift */; };
 		1A1286EB1D05C40C00B7DB67 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1286EA1D05C40C00B7DB67 /* DetailsViewController.swift */; };
 		1A1286ED1D05C51100B7DB67 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1286EC1D05C51100B7DB67 /* DetailsViewModel.swift */; };
 		1A1286EF1D05E44F00B7DB67 /* DetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1286EE1D05E44F00B7DB67 /* DetailsTableViewCell.swift */; };
@@ -45,10 +47,15 @@
 		1AE0F3B71D043E7D00F22345 /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE0F3B51D043E7D00F22345 /* NowPlayingViewController.swift */; };
 		1AE0F3B81D043E7D00F22345 /* NowPlayingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AE0F3B61D043E7D00F22345 /* NowPlayingViewController.xib */; };
 		1AE0F3BA1D04982C00F22345 /* NowPlayingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE0F3B91D04982C00F22345 /* NowPlayingViewModel.swift */; };
+		1AE33C611D10766900390A37 /* UITextFieldDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE33C601D10766900390A37 /* UITextFieldDelegateProxy.swift */; };
+		1AE33C631D10773900390A37 /* UITextField+RxDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE33C621D10773900390A37 /* UITextField+RxDelegate.swift */; };
+		1AE904311D08CCB50077D2B7 /* UIViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE904301D08CCB50077D2B7 /* UIViewController+Keyboard.swift */; };
 		1C441C327EE5F7CB8B4BFE95 /* Pods_Julie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9755C0025980908A1D26E24 /* Pods_Julie.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A1147C91D0DE1B30062F816 /* LaunchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchController.swift; sourceTree = "<group>"; };
+		1A1147CB1D0DECE80062F816 /* Dependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dependencies.swift; sourceTree = "<group>"; };
 		1A1286EA1D05C40C00B7DB67 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		1A1286EC1D05C51100B7DB67 /* DetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		1A1286EE1D05E44F00B7DB67 /* DetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsTableViewCell.swift; sourceTree = "<group>"; };
@@ -90,6 +97,9 @@
 		1AE0F3B51D043E7D00F22345 /* NowPlayingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
 		1AE0F3B61D043E7D00F22345 /* NowPlayingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NowPlayingViewController.xib; sourceTree = "<group>"; };
 		1AE0F3B91D04982C00F22345 /* NowPlayingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingViewModel.swift; sourceTree = "<group>"; };
+		1AE33C601D10766900390A37 /* UITextFieldDelegateProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldDelegateProxy.swift; sourceTree = "<group>"; };
+		1AE33C621D10773900390A37 /* UITextField+RxDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+RxDelegate.swift"; sourceTree = "<group>"; };
+		1AE904301D08CCB50077D2B7 /* UIViewController+Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Keyboard.swift"; sourceTree = "<group>"; };
 		A5298D56B6ADE065E6388218 /* Pods-Julie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Julie.release.xcconfig"; path = "Pods/Target Support Files/Pods-Julie/Pods-Julie.release.xcconfig"; sourceTree = "<group>"; };
 		B1A68D6F951976F0C2A12CCA /* Pods-Julie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Julie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Julie/Pods-Julie.debug.xcconfig"; sourceTree = "<group>"; };
 		F9755C0025980908A1D26E24 /* Pods_Julie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Julie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +138,8 @@
 				1A7D5A921D032C4C002017D6 /* ActivityIndicator.swift */,
 				1AE0F3B21D04373600F22345 /* RHKRhapsody+Rx.swift */,
 				1A1286F01D05EBBA00B7DB67 /* ObservableType+Custom.swift */,
+				1AE33C601D10766900390A37 /* UITextFieldDelegateProxy.swift */,
+				1AE33C621D10773900390A37 /* UITextField+RxDelegate.swift */,
 			);
 			path = Rx;
 			sourceTree = "<group>";
@@ -136,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				1A7E99CF1D0878DD0024BF7B /* CollectionType+Optional.swift */,
+				1AE904301D08CCB50077D2B7 /* UIViewController+Keyboard.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -242,6 +255,8 @@
 			isa = PBXGroup;
 			children = (
 				1AE0F3A31D04141200F22345 /* NavigationService.swift */,
+				1A1147C91D0DE1B30062F816 /* LaunchController.swift */,
+				1A1147CB1D0DECE80062F816 /* Dependencies.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -405,16 +420,21 @@
 				1A1286EB1D05C40C00B7DB67 /* DetailsViewController.swift in Sources */,
 				1AE0F3A41D04141200F22345 /* NavigationService.swift in Sources */,
 				1AE0F39D1D03438C00F22345 /* PlayerViewController.swift in Sources */,
+				1AE33C611D10766900390A37 /* UITextFieldDelegateProxy.swift in Sources */,
 				1A1286F11D05EBBA00B7DB67 /* ObservableType+Custom.swift in Sources */,
+				1A1147CA1D0DE1B30062F816 /* LaunchController.swift in Sources */,
 				1A1286EF1D05E44F00B7DB67 /* DetailsTableViewCell.swift in Sources */,
 				1ACCCAA41D08A4AF002DF036 /* FillableRoundButton.swift in Sources */,
 				1AA117041D03172500A404D7 /* ImageView.swift in Sources */,
 				1A7E99D01D0878DD0024BF7B /* CollectionType+Optional.swift in Sources */,
+				1AE904311D08CCB50077D2B7 /* UIViewController+Keyboard.swift in Sources */,
+				1AE33C631D10773900390A37 /* UITextField+RxDelegate.swift in Sources */,
 				1A7D5A931D032C4C002017D6 /* ActivityIndicator.swift in Sources */,
 				1AE0F3AE1D04289E00F22345 /* RHKTrack+JSON.swift in Sources */,
 				1AE0F39A1D03431800F22345 /* Player.swift in Sources */,
 				1A1286ED1D05C51100B7DB67 /* DetailsViewModel.swift in Sources */,
 				1AA116FE1D03154800A404D7 /* UIColor+Julie.swift in Sources */,
+				1A1147CC1D0DECE80062F816 /* Dependencies.swift in Sources */,
 				1A7D5A901D031E34002017D6 /* Validator.swift in Sources */,
 				1AE0F3BA1D04982C00F22345 /* NowPlayingViewModel.swift in Sources */,
 				1AE0F3B31D04373600F22345 /* RHKRhapsody+Rx.swift in Sources */,
@@ -554,6 +574,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Julie/Julie-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -581,6 +602,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.fivedollarmilkshake.Julie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Julie/Julie-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
