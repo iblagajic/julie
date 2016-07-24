@@ -30,6 +30,7 @@
 		1AA117001D03155900A404D7 /* UIFont+Julie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA116FF1D03155900A404D7 /* UIFont+Julie.swift */; };
 		1AA117021D03157E00A404D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA117011D03157E00A404D7 /* ViewController.swift */; };
 		1AA117041D03172500A404D7 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA117031D03172500A404D7 /* ImageView.swift */; };
+		1AAD4DE71D17052600F11722 /* DetailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAD4DE61D17052600F11722 /* DetailsHeaderView.swift */; };
 		1AC5CEAA1D020974005E2F68 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC5CEA91D020974005E2F68 /* AppDelegate.swift */; };
 		1AC5CEB11D020974005E2F68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AC5CEB01D020974005E2F68 /* Assets.xcassets */; };
 		1AC5CEB41D020974005E2F68 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AC5CEB21D020974005E2F68 /* LaunchScreen.storyboard */; };
@@ -50,6 +51,7 @@
 		1AE33C611D10766900390A37 /* UITextFieldDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE33C601D10766900390A37 /* UITextFieldDelegateProxy.swift */; };
 		1AE33C631D10773900390A37 /* UITextField+RxDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE33C621D10773900390A37 /* UITextField+RxDelegate.swift */; };
 		1AE904311D08CCB50077D2B7 /* UIViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE904301D08CCB50077D2B7 /* UIViewController+Keyboard.swift */; };
+		1AEC1A2E1D4516D6000F6D36 /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEC1A2D1D4516D6000F6D36 /* PlayButton.swift */; };
 		1C441C327EE5F7CB8B4BFE95 /* Pods_Julie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9755C0025980908A1D26E24 /* Pods_Julie.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +79,7 @@
 		1AA116FF1D03155900A404D7 /* UIFont+Julie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Julie.swift"; sourceTree = "<group>"; };
 		1AA117011D03157E00A404D7 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1AA117031D03172500A404D7 /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		1AAD4DE61D17052600F11722 /* DetailsHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsHeaderView.swift; sourceTree = "<group>"; };
 		1AC5CEA61D020974005E2F68 /* Julie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Julie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AC5CEA91D020974005E2F68 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1AC5CEB01D020974005E2F68 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -100,6 +103,7 @@
 		1AE33C601D10766900390A37 /* UITextFieldDelegateProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldDelegateProxy.swift; sourceTree = "<group>"; };
 		1AE33C621D10773900390A37 /* UITextField+RxDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+RxDelegate.swift"; sourceTree = "<group>"; };
 		1AE904301D08CCB50077D2B7 /* UIViewController+Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Keyboard.swift"; sourceTree = "<group>"; };
+		1AEC1A2D1D4516D6000F6D36 /* PlayButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
 		A5298D56B6ADE065E6388218 /* Pods-Julie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Julie.release.xcconfig"; path = "Pods/Target Support Files/Pods-Julie/Pods-Julie.release.xcconfig"; sourceTree = "<group>"; };
 		B1A68D6F951976F0C2A12CCA /* Pods-Julie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Julie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Julie/Pods-Julie.debug.xcconfig"; sourceTree = "<group>"; };
 		F9755C0025980908A1D26E24 /* Pods_Julie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Julie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +132,7 @@
 				1A1286EA1D05C40C00B7DB67 /* DetailsViewController.swift */,
 				1A1286EC1D05C51100B7DB67 /* DetailsViewModel.swift */,
 				1A1286F41D05FF0F00B7DB67 /* DetailsViewController.xib */,
+				1AAD4DE61D17052600F11722 /* DetailsHeaderView.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -238,6 +243,7 @@
 				1AE0F39B1D03438C00F22345 /* PlayerViewController.swift */,
 				1AE0F39C1D03438C00F22345 /* PlayerViewController.xib */,
 				1AE0F3A61D041E7800F22345 /* PlayerViewModel.swift */,
+				1AEC1A2D1D4516D6000F6D36 /* PlayButton.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -432,10 +438,12 @@
 				1A7D5A931D032C4C002017D6 /* ActivityIndicator.swift in Sources */,
 				1AE0F3AE1D04289E00F22345 /* RHKTrack+JSON.swift in Sources */,
 				1AE0F39A1D03431800F22345 /* Player.swift in Sources */,
+				1AAD4DE71D17052600F11722 /* DetailsHeaderView.swift in Sources */,
 				1A1286ED1D05C51100B7DB67 /* DetailsViewModel.swift in Sources */,
 				1AA116FE1D03154800A404D7 /* UIColor+Julie.swift in Sources */,
 				1A1147CC1D0DECE80062F816 /* Dependencies.swift in Sources */,
 				1A7D5A901D031E34002017D6 /* Validator.swift in Sources */,
+				1AEC1A2E1D4516D6000F6D36 /* PlayButton.swift in Sources */,
 				1AE0F3BA1D04982C00F22345 /* NowPlayingViewModel.swift in Sources */,
 				1AE0F3B31D04373600F22345 /* RHKRhapsody+Rx.swift in Sources */,
 				1AA117001D03155900A404D7 /* UIFont+Julie.swift in Sources */,

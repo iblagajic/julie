@@ -13,26 +13,46 @@ import PureLayout
 
 class DetailsViewController: ViewController {
     
-    @IBOutlet weak var headerImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+    
+    let headerView = DetailsHeaderView()
     
     var viewModel: DetailsViewModel!
     
     convenience init(viewModel: DetailsViewModel) {
         self.init()
         self.viewModel = viewModel
+        let backImage = UIImage(named: "back")
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: backImage, style: .Plain, target: nil, action: nil)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBarHidden = false
+        automaticallyAdjustsScrollViewInsets = false
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        let size = tableView.frame.width
+        headerView.frame = CGRect(x: 0, y: 0, width: size, height: size)
+        tableView.tableHeaderView = headerView
     }
     
     override func setup() {
         super.setup()
         
         tableView.separatorColor = .clearColor()
-        tableView.contentInset = UIEdgeInsets(top: 320.0, left: 0, bottom: 0, right: 0)
         tableView.backgroundColor = .clearColor()
+        
         viewModel.headerImage
             .asDriver(onErrorJustReturn: nil)
-            .drive(headerImage.rx_image)
-            .addDisposableTo(bag)
+            .driveNext { [weak self] headerImage in
+                self?.headerView.imageView.image = headerImage
+                self?.tableView.tableHeaderView = self?.headerView
+            }.addDisposableTo(bag)
         
         let formatter = NSDateComponentsFormatter()
         formatter.unitsStyle = .Positional

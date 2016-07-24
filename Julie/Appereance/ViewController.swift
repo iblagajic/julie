@@ -39,6 +39,13 @@ class ViewController: UIViewController {
     
     func setStyle() {
         view.backgroundColor = .standardBackground()
+        
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.tintColor = .primary()
+        navigationItem.leftBarButtonItem?.rx_tap.subscribeNext {
+            self.navigationController?.popViewControllerAnimated(true)
+        }.addDisposableTo(bag)
     }
     
     func showLoading(show: Bool) {
