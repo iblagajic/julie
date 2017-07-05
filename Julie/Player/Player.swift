@@ -17,7 +17,7 @@ class Player {
     
     var hasPrevious: Bool {
         guard let track = rhapsody.player.currentTrack,
-            let index = self.tracks.indexOf(track) else {
+            let index = self.tracks.index(of: track) else {
                 return false
         }
         return index > 0
@@ -25,7 +25,7 @@ class Player {
     
     var hasNext: Bool {
         guard let track = rhapsody.player.currentTrack,
-            let index = self.tracks.indexOf(track) else {
+            let index = self.tracks.index(of: track) else {
                 return false
         }
         return self.tracks.count > index + 1
@@ -36,14 +36,14 @@ class Player {
     init(rhapsody: RHKRhapsody) {
         self.rhapsody = rhapsody
         rhapsody.rx_state()
-            .subscribeNext { [unowned self] state in
+            .subscribe(onNext: { [unowned self] state in
                 switch state {
                 case RHKPlaybackStateFinished:
                     self.next()
                 default:
                     break
                 }
-            }.addDisposableTo(bag)
+            }).addDisposableTo(bag)
     }
     
     func startPlaying() -> Observable<Void> {
@@ -54,7 +54,7 @@ class Player {
                 }
                 let range = UInt32(tracks.count)
                 let rand = Int(arc4random_uniform(range))
-                return tracks[rand].album.ID
+                return tracks[rand].album.id
             }.flatMap(rhapsody.fetchTracks)
             .map { [unowned self] tracks in
                 self.tracks = tracks
@@ -79,14 +79,14 @@ class Player {
             guard let track = track else {
                 return nil
             }
-            return self?.tracks.indexOf(track)
+            return self?.tracks.index(of: track)
         }
     }
     
     func playTrack(_ atIndex: Int) {
         if let track = tracks[safe: atIndex] {
             lastTrackPlayedIndex = atIndex
-            rhapsody.player.playTrack(track)
+            rhapsody.player.play(track)
         }
     }
     

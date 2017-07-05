@@ -42,16 +42,16 @@ class NowPlayingViewModel {
         canNext = nowPlayingTrack.map { _ in player.hasNext }
         canPause = rhapsody.rx_state().map { return $0 == RHKPlaybackStatePlaying }
         progress = rhapsody.rx_progress().map { CGFloat($0) }
-        nextTap.subscribeNext(player.next).addDisposableTo(bag)
-        albumImageTap.subscribeNext {
+        nextTap.subscribe(onNext: player.next).addDisposableTo(bag)
+        albumImageTap.subscribe(onNext: {
             navigationService.pushDetails(player)
-        }.addDisposableTo(bag)
-        playPauseTap.withLatestFrom(canPause).subscribeNext { canPause in
+        }).addDisposableTo(bag)
+        playPauseTap.withLatestFrom(canPause).subscribe(onNext: { canPause in
             if canPause {
                 player.pause()
             } else {
                 player.resume()
             }
-        }.addDisposableTo(bag)
+        }).addDisposableTo(bag)
     }
 }

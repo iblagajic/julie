@@ -17,7 +17,7 @@ class LaunchController {
     }
     
     func reopenOrPresentLogin() {
-        let viewControllerType: FirstViewController = rhapsody.isSessionOpen ? .Player : .Login
+        let viewControllerType: FirstViewController = rhapsody.isSessionOpen ? FirstViewController.player : FirstViewController.login
         self.navigationService.pushFirstViewController(viewControllerType)
     }
     

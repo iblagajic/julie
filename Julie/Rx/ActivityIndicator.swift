@@ -5,17 +5,18 @@
 //  Created by Krunoslav Zaher on 10/18/15.
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
 //
+#if !RX_NO_MODULE
+    import RxSwift
+    import RxCocoa
+#endif
 
-import RxSwift
-import RxCocoa
+private struct ActivityToken<E> : ObservableConvertibleType, Disposable {
+    private let _source: Observable<E>
+    private let _dispose: Cancelable
 
-struct ActivityToken<E> : ObservableConvertibleType, Disposable {
-    fileprivate let _source: Observable<E>
-    fileprivate let _dispose: AnonymousDisposable
-
-    init(source: Observable<E>, disposeAction: () -> ()) {
+    init(source: Observable<E>, disposeAction: @escaping () -> ()) {
         _source = source
-        _dispose = AnonymousDisposable(disposeAction)
+        _dispose = Disposables.create(with: disposeAction)
     }
 
     func dispose() {
@@ -28,29 +29,25 @@ struct ActivityToken<E> : ObservableConvertibleType, Disposable {
 }
 
 /**
-Enables monitoring of sequence computation.
+ Enables monitoring of sequence computation.
+ If there is at least one sequence computation in progress, `true` will be sent.
+ When all activities complete `false` will be sent.
+ */
+public class ActivityIndicator : SharedSequenceConvertibleType {
+    public typealias E = Bool
+    public typealias SharingStrategy = DriverSharingStrategy
 
-If there is at least one sequence computation in progress, `true` will be sent.
-When all activities complete `false` will be sent.
-*/
-class ActivityIndicator : DriverConvertibleType {
-    typealias E = Bool
+    private let _lock = NSRecursiveLock()
+    private let _variable = Variable(0)
+    private let _loading: SharedSequence<SharingStrategy, Bool>
 
-    fileprivate let _lock = NSRecursiveLock()
-    fileprivate let _variable = Variable(0)
-    fileprivate let _loading: Driver<Bool>
-
-    init() {
-        _loading = _variable.asObservable()
+    public init() {
+        _loading = _variable.asDriver()
             .map { $0 > 0 }
             .distinctUntilChanged()
-            .asDriver { (error: Error) -> Driver<Bool> in
-                _ = fatalError("Loader can't fail")
-                return Driver.empty()
-            }
     }
 
-    func trackActivity<O: ObservableConvertibleType>(_ source: O) -> Observable<O.E> {
+    fileprivate func trackActivityOfObservable<O: ObservableConvertibleType>(_ source: O) -> Observable<O.E> {
         return Observable.using({ () -> ActivityToken<O.E> in
             self.increment()
             return ActivityToken(source: source.asObservable(), disposeAction: self.decrement)
@@ -59,25 +56,25 @@ class ActivityIndicator : DriverConvertibleType {
         }
     }
 
-    fileprivate func increment() {
+    private func increment() {
         _lock.lock()
         _variable.value = _variable.value + 1
         _lock.unlock()
     }
 
-    fileprivate func decrement() {
+    private func decrement() {
         _lock.lock()
         _variable.value = _variable.value - 1
         _lock.unlock()
     }
 
-    func asDriver() -> Driver<E> {
+    public func asSharedSequence() -> SharedSequence<SharingStrategy, E> {
         return _loading
     }
 }
 
 extension ObservableConvertibleType {
-    func trackActivity(_ activityIndicator: ActivityIndicator) -> Observable<E> {
-        return activityIndicator.trackActivity(self)
+    public func trackActivity(_ activityIndicator: ActivityIndicator) -> Observable<E> {
+        return activityIndicator.trackActivityOfObservable(self)
     }
 }

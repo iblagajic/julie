@@ -31,13 +31,13 @@ class PlayerViewController: ViewController {
         playButton.tintColor = .action()
         playButton.imageEdgeInsets = UIEdgeInsetsMake(0, 5.0, 0, 0)
         
-        playButton.rx_tap
-            .bindTo(viewModel.playTap)
+        playButton.rx.tap
+            .bind(to: viewModel.playTap)
             .addDisposableTo(bag)
         
         viewModel.loading
             .asDriver(onErrorJustReturn: false)
-            .driveNext(showLoading)
+            .drive(onNext: showLoading)
             .addDisposableTo(bag)
     }
 

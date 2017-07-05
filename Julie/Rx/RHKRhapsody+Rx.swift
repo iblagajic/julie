@@ -12,56 +12,57 @@ extension RHKRhapsody {
     
     func rx_favorites() -> Observable<AnyObject> {
         return Observable.create { observer -> Disposable in
-            self.requestForMethod(.GET,
+            self.request(for: .GET,
                 path: "me/favorites",
                 authenticated: true,
                 params: ["limit" : 100]) { (response, err) in
                     if let favoritesResponse = response {
-                        observer.onNext(favoritesResponse)
+                        observer.onNext(favoritesResponse as AnyObject)
                         observer.onCompleted()
                     } else {
-                        observer.onError(err)
+                        observer.onError(err!)
                     }
             }
-            return NopDisposable.instance
+            return Disposables.create()
         }
     }
     
     func rx_tracks(inAlbum albumId: String) -> Observable<AnyObject> {
         return Observable.create { observer -> Disposable in
-            self.requestForMethod(.GET,
+            self.request(for: .GET,
                 path: "albums/\(albumId)/tracks",
                 authenticated: false,
                 params: nil) { (response, err) in
                     if let tracksResponse = response {
-                        observer.onNext(tracksResponse)
+                        observer.onNext(tracksResponse as AnyObject)
                         observer.onCompleted()
                     } else {
-                        observer.onError(err)
+                        observer.onError(err!)
                     }
                 }
-            return NopDisposable.instance
+            return Disposables.create()
         }
     }
     
     func rx_nowPlaying() -> Observable<RHKTrack?> {
-        return player.rx_observe(RHKTrack.self, "currentTrack")
+        return player.rx.observe(RHKTrack.self, "currentTrack")
     }
     
     func rx_state() -> Observable<RHKPlaybackState> {
-        return player.rx_observe(RHKPlaybackState.self, "playbackState").filterNil()
+        return player.rx.observe(RHKPlaybackState.self, "playbackState").filterNil()
     }
     
     func rx_progress() -> Observable<Float> {
         return notificationCenter
-            .rx_notification(RHKNotificationPlayheadPositionChanged)
+            .rx.notification(Notification.Name(rawValue: RHKNotificationPlayheadPositionChanged))
             .map { [unowned self] _ in
                 Float(self.player.playheadPosition/self.player.currentTrackDuration)
-        }
+            }
     }
     
     func rx_error() -> Observable<String> {
-        return notificationCenter.rx_notification(RHKNotificationCurrentTrackFailed).map { notification -> String in
+        return notificationCenter.rx.notification(Notification.Name(rawValue: RHKNotificationCurrentTrackFailed))
+            .map { notification -> String in
                 return notification.userInfo?[RHKNotificationErrorKey] as? String ?? ""
             }
     }

@@ -8,8 +8,8 @@
 
 class Dependencies {
     
-    let apiKey = "ODUzZTc4MTctNGY4Ni00MzdlLWEwMzEtMTBhZDZmZjg2M2Fj"
-    let apiSecret = "YzMxNWVkNjQtMDU0NS00NDI0LWFlNGYtMDFhYjBkMWI3M2M2"
+    let apiKey = "NzUyYTBmYjgtZTZlYS00ZWVmLTk4ZmMtYjg2YzhiNzI2NDU0"
+    let apiSecret = "NGJiMTg2NzAtN2E4Yy00NWJjLThkMjItNzFiODc5ZjJjZGI4"
     
     let rhapsody: RHKRhapsody
     let navigationService: NavigationService

@@ -52,52 +52,52 @@ class NowPlayingViewController: ViewController {
         
         viewModel.albumImage
             .asDriver(onErrorJustReturn: nil)
-            .drive(backgroundImage.rx_image)
+            .drive(backgroundImage.rx.image)
             .addDisposableTo(bag)
         viewModel.albumImage
             .asDriver(onErrorJustReturn: nil)
-            .driveNext { [weak self] image in
-                self?.albumImageButton.setImage(image, forState: .Normal)
-            }.addDisposableTo(bag)
+            .drive(onNext: { [weak self] image in
+                self?.albumImageButton.setImage(image, for: .normal)
+            }).addDisposableTo(bag)
         viewModel.nowPlayingTitle
             .asDriver(onErrorJustReturn: "")
-            .drive(nowPlayingLabel.rx_text)
+            .drive(nowPlayingLabel.rx.text)
             .addDisposableTo(bag)
         viewModel.artistName
             .asDriver(onErrorJustReturn: "")
-            .drive(artistNameLabel.rx_text)
+            .drive(artistNameLabel.rx.text)
             .addDisposableTo(bag)
         viewModel.trackName
             .asDriver(onErrorJustReturn: "")
-            .drive(trackNameLabel.rx_text)
+            .drive(trackNameLabel.rx.text)
             .addDisposableTo(bag)
         viewModel.canNext
             .asDriver(onErrorJustReturn: false)
-            .drive(nextButton.rx_enabled)
+            .drive(nextButton.rx.isEnabled)
             .addDisposableTo(bag)
         viewModel.canPrevious
             .asDriver(onErrorJustReturn: false)
-            .drive(previousButton.rx_enabled)
+            .drive(previousButton.rx.isEnabled)
             .addDisposableTo(bag)
         viewModel.canPause
             .asDriver(onErrorJustReturn: false)
-            .drive(playPauseButton.rx_selected)
+            .drive(playPauseButton.rx.isSelected)
             .addDisposableTo(bag)
         viewModel.progress
             .asDriver(onErrorJustReturn: 0)
-            .driveNext(albumImageButton.rx_progress)
+            .drive(onNext: albumImageButton.rx_progress)
             .addDisposableTo(bag)
-        previousButton.rx_tap
-            .bindTo(viewModel.previousTap)
+        previousButton.rx.tap
+            .bind(to: viewModel.previousTap)
             .addDisposableTo(bag)
-        playPauseButton.rx_tap
-            .bindTo(viewModel.playPauseTap)
+        playPauseButton.rx.tap
+            .bind(to: viewModel.playPauseTap)
             .addDisposableTo(bag)
-        nextButton.rx_tap
-            .bindTo(viewModel.nextTap)
+        nextButton.rx.tap
+            .bind(to: viewModel.nextTap)
             .addDisposableTo(bag)
-        albumImageButton.rx_tap
-            .bindTo(viewModel.albumImageTap)
+        albumImageButton.rx.tap
+            .bind(to: viewModel.albumImageTap)
             .addDisposableTo(bag)
     }
 

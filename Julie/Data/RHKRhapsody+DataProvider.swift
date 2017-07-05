@@ -19,16 +19,15 @@ extension RHKRhapsody {
     }
     
     func currentAlbumImage() -> Observable<UIImage?> {
-        let session = NSURLSession.sharedSession()
+        let session = URLSession.shared
         return rx_nowPlaying()
             .flatMap { track -> Observable<UIImage?> in
-                guard let albumId = track?.album.ID else {
+                guard let albumId = track?.album.id else {
                     return Observable.empty()
                 }
                 let urlString = "http://direct.rhapsody.com/imageserver/v2/albums/\(albumId)/images/300x300.jpg"
-                let request = NSMutableURLRequest()
-                request.URL = NSURL(string: urlString)
-                return session.rx_data(request).map { data in
+                let request = URLRequest(url: URL(string: urlString)!)
+                return session.rx.data(request: request).map { data in
                     return UIImage(data: data)
                 }
         }

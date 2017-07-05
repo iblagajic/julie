@@ -49,36 +49,36 @@ class DetailsViewController: ViewController {
         
         viewModel.headerImage
             .asDriver(onErrorJustReturn: nil)
-            .driveNext { [weak self] headerImage in
+            .drive(onNext: { [weak self] headerImage in
                 self?.headerView.imageView.image = headerImage
                 self?.tableView.tableHeaderView = self?.headerView
-            }.addDisposableTo(bag)
+            }).addDisposableTo(bag)
         
         let formatter = DateComponentsFormatter()
         formatter.unitsStyle = .positional
         formatter.allowedUnits = [.minute, .second]
         formatter.zeroFormattingBehavior = DateComponentsFormatter.ZeroFormattingBehavior()
-        let cellId = String(describing: DetailsTableViewCell)
+        let cellId = "DetailsTableViewCell"
         tableView.register(UINib(nibName: cellId, bundle: nil), forCellReuseIdentifier: cellId)
         let dataSource = RxTableViewSectionedReloadDataSource<Section>()
         viewModel.sections
-            .bindTo(tableView.rx_itemsWithDataSource(dataSource))
+            .bind(to: tableView.rx.items(dataSource: dataSource))
             .addDisposableTo(bag)
         dataSource.configureCell = { [weak self] ds, tv, ip, i in
-            let cell = self?.tableView.dequeueReusableCellWithIdentifier(cellId) as! DetailsTableViewCell
+            let cell = self?.tableView.dequeueReusableCell(withIdentifier: cellId) as! DetailsTableViewCell
             cell.titleLabel?.text = i.name
-            cell.timeLabel?.text = formatter.stringFromTimeInterval(NSTimeInterval(i.duration))
+            cell.timeLabel?.text = formatter.string(from: TimeInterval(i.duration))
             return cell
         }
         viewModel.nowPlayingIndex
             .asDriver(onErrorJustReturn: nil)
             .filterNil()
-            .map { IndexPath(forRow: $0, inSection: 0)}
-            .driveNext { [weak self] ip in
-                self?.tableView.selectRowAtIndexPath(ip, animated: true, scrollPosition: .None)
-            }.addDisposableTo(bag)
-        tableView.rx_itemSelected
-            .bindTo(viewModel.selectTrack)
+            .map { IndexPath(row: $0, section: 0) }
+            .drive(onNext: { [weak self] ip in
+                self?.tableView.selectRow(at: ip, animated: true, scrollPosition: .none)
+            }).addDisposableTo(bag)
+        tableView.rx.itemSelected
+            .bind(to: viewModel.selectTrack)
             .addDisposableTo(bag)
     }
 

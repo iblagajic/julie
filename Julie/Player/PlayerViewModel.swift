@@ -26,9 +26,9 @@ class PlayerViewModel {
             }.withLatestFrom(rhapsody.rx_nowPlaying())
             .mapVoid()
             .asDriver(onErrorJustReturn: ())
-            .driveNext {
+            .drive(onNext: {
                 navigationService.pushNowPlaying(player)
-            }.addDisposableTo(bag)
+            }).addDisposableTo(bag)
     }
     
 }

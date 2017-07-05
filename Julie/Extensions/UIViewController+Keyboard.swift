@@ -13,21 +13,21 @@ import RxOptional
 extension UIViewController {
     
     var rx_keyboardWillShow: Observable<CGRect> {
-        return NSNotificationCenter.defaultCenter()
-            .rx_notification(UIKeyboardWillShowNotification)
+        return NotificationCenter.default
+            .rx.notification(NSNotification.Name.UIKeyboardWillShow)
             .map { notification -> CGRect? in
                 guard let userInfo = notification.userInfo,
                     let frameValue = userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue else {
                         return nil
                 }
-                return frameValue.CGRectValue()
+                return frameValue.cgRectValue
             }.filterNil()
     }
     
     var rx_keyboardDidHide: Observable<CGRect> {
-        return NSNotificationCenter.defaultCenter()
-            .rx_notification(UIKeyboardDidHideNotification)
-            .map { _ in CGRectZero }
+        return NotificationCenter.default
+            .rx.notification(NSNotification.Name.UIKeyboardDidHide)
+            .map { _ in CGRect.zero }
     }
     
     var rx_keyboardWillChange: Observable<CGRect> {

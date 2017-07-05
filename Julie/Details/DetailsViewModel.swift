@@ -23,7 +23,7 @@ extension Section: SectionModelType {
 
 class DetailsViewModel {
     
-    let selectTrack = PublishSubject<NSIndexPath>()
+    let selectTrack = PublishSubject<IndexPath>()
     
     let sections: Observable<[Section]>
     let nowPlayingIndex: Observable<Int?>
@@ -37,9 +37,9 @@ class DetailsViewModel {
         nowPlayingIndex = player.nowPlayingIndex()
         headerImage = player.rhapsody.currentAlbumImage()
         
-        selectTrack.subscribeNext { ip in
+        selectTrack.subscribe(onNext: { ip in
             player.playTrack(ip.row)
-        }.addDisposableTo(bag)
+        }).addDisposableTo(bag)
     }
     
 }

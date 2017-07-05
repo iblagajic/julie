@@ -38,14 +38,14 @@ class LoginViewModel {
                     .catchErrorJustReturn(false)
                     .trackActivity(activityIndicator)
             }.asDriver(onErrorJustReturn: false)
-            .driveNext { success in
+            .drive(onNext: { success in
                 switch(success) {
                 case true:
                     navigationService.pushPlayer()
                 case false:
                     print("Login failed")
                 }
-            }.addDisposableTo(bag)
+            }).addDisposableTo(bag)
     }
     
 }

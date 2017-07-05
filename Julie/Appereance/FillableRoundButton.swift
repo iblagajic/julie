@@ -24,7 +24,7 @@ class FillableRoundButton: UIButton {
         super.awakeFromNib()
         
         layer.masksToBounds = true
-        drawCircle(.standardBackground(), strokeEnd: 1.0)
+        _ = drawCircle(.standardBackground(), strokeEnd: 1.0)
         fillCircle = drawCircle(.action(), strokeEnd: 0.0)
     }
     
@@ -61,8 +61,8 @@ class FillableRoundButton: UIButton {
         let radius = frame.width/2
         return UIBezierPath(arcCenter: CGPoint(x: radius, y: radius),
                             radius: radius - 1,
-                            startAngle: CGFloat(-M_PI/2),
-                            endAngle:CGFloat(M_PI * 2 - M_PI/2),
+                            startAngle: CGFloat(-Double.pi/2),
+                            endAngle:CGFloat(Double.pi * 2 - Double.pi/2),
                             clockwise: true)
     }
     
