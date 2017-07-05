@@ -12,7 +12,7 @@ class ImageView: UIImageView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        image = image?.imageWithRenderingMode(.AlwaysTemplate)
+        image = image?.withRenderingMode(.alwaysTemplate)
         tintColor = .primary()
     }
     

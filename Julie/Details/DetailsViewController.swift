@@ -23,13 +23,13 @@ class DetailsViewController: ViewController {
         self.init()
         self.viewModel = viewModel
         let backImage = UIImage(named: "back")
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: backImage, style: .Plain, target: nil, action: nil)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: backImage, style: .plain, target: nil, action: nil)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.navigationBarHidden = false
+        navigationController?.isNavigationBarHidden = false
         automaticallyAdjustsScrollViewInsets = false
     }
     
@@ -44,8 +44,8 @@ class DetailsViewController: ViewController {
     override func setup() {
         super.setup()
         
-        tableView.separatorColor = .clearColor()
-        tableView.backgroundColor = .clearColor()
+        tableView.separatorColor = .clear
+        tableView.backgroundColor = .clear
         
         viewModel.headerImage
             .asDriver(onErrorJustReturn: nil)
@@ -54,12 +54,12 @@ class DetailsViewController: ViewController {
                 self?.tableView.tableHeaderView = self?.headerView
             }.addDisposableTo(bag)
         
-        let formatter = NSDateComponentsFormatter()
-        formatter.unitsStyle = .Positional
-        formatter.allowedUnits = [.Minute, .Second]
-        formatter.zeroFormattingBehavior = .None
-        let cellId = String(DetailsTableViewCell)
-        tableView.registerNib(UINib(nibName: cellId, bundle: nil), forCellReuseIdentifier: cellId)
+        let formatter = DateComponentsFormatter()
+        formatter.unitsStyle = .positional
+        formatter.allowedUnits = [.minute, .second]
+        formatter.zeroFormattingBehavior = DateComponentsFormatter.ZeroFormattingBehavior()
+        let cellId = String(describing: DetailsTableViewCell)
+        tableView.register(UINib(nibName: cellId, bundle: nil), forCellReuseIdentifier: cellId)
         let dataSource = RxTableViewSectionedReloadDataSource<Section>()
         viewModel.sections
             .bindTo(tableView.rx_itemsWithDataSource(dataSource))
@@ -73,7 +73,7 @@ class DetailsViewController: ViewController {
         viewModel.nowPlayingIndex
             .asDriver(onErrorJustReturn: nil)
             .filterNil()
-            .map { NSIndexPath(forRow: $0, inSection: 0)}
+            .map { IndexPath(forRow: $0, inSection: 0)}
             .driveNext { [weak self] ip in
                 self?.tableView.selectRowAtIndexPath(ip, animated: true, scrollPosition: .None)
             }.addDisposableTo(bag)

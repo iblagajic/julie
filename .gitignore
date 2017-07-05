@@ -35,3 +35,4 @@ DerivedData
 *.dat
 *.dep
 
+/Pods

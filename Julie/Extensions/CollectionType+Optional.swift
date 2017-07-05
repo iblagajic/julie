@@ -6,9 +6,9 @@
 //  Copyright © 2016 Five Dollar Milkshake. All rights reserved.
 //
 
-extension CollectionType {
+extension Collection {
     
-    subscript (safe index: Index) -> Generator.Element? {
+    subscript (safe index: Index) -> Iterator.Element? {
         return indices.contains(index) ? self[index] : nil
     }
     

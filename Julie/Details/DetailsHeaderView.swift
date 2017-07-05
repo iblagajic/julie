@@ -22,8 +22,8 @@ class DetailsHeaderView: UIView {
         overlay.autoPinEdgesToSuperviewEdges()
         imageView.autoPinEdgesToSuperviewEdges()
         
-        imageView.contentMode = .ScaleAspectFill
-        overlay.backgroundColor = .whiteColor()
+        imageView.contentMode = .scaleAspectFill
+        overlay.backgroundColor = .white
         overlay.alpha = 0.5
     }
     

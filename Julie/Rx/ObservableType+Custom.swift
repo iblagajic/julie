@@ -10,7 +10,7 @@ import RxSwift
 
 extension ObservableType {
     
-    @warn_unused_result(message="http://git.io/rxs.uo")
+    
     public func mapVoid() -> Observable<()> {
         return self.map { _ in () }
     }

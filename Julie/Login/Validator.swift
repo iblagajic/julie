@@ -8,14 +8,14 @@
 
 class Validator {
     
-    static func isValidEmail(email: String) -> Bool {
+    static func isValidEmail(_ email: String) -> Bool {
         let regex = try! NSRegularExpression(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}",
                                              options: .CaseInsensitive)
         return regex.firstMatchInString(email, options:[],
                                         range: NSRange(location: 0, length: email.characters.count)) != nil
     }
     
-    static func isValidPassword(password: String) -> Bool {
+    static func isValidPassword(_ password: String) -> Bool {
         let regex = try! NSRegularExpression(pattern: "[^-_.+@0-9a-zA-Z]", options: .CaseInsensitive)
         let valid = regex.firstMatchInString(password, options: [],
                                              range: NSRange(location: 0, length: password.characters.count))

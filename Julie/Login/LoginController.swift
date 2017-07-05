@@ -19,7 +19,7 @@ class LoginController {
         self.rhapsody = rhapsody
     }
     
-    func login(username: String, password: String) -> Observable<Bool> {
+    func login(_ username: String, password: String) -> Observable<Bool> {
         let request = NSMutableURLRequest()
         request.URL = NSURL(string: "https://api.rhapsody.com/oauth/token")
         request.HTTPMethod = "POST"
@@ -35,10 +35,10 @@ class LoginController {
             .flatMap(handleLoginResponse)
     }
     
-    private func handleLoginResponse(loginResponse: AnyObject) -> Observable<Bool> {
+    fileprivate func handleLoginResponse(_ loginResponse: AnyObject) -> Observable<Bool> {
         guard let accessToken = loginResponse["access_token"] as? String,
-            refreshToken = loginResponse["refresh_token"] as? String,
-            expirationInterval = loginResponse["expires_in"] as? NSTimeInterval else {
+            let refreshToken = loginResponse["refresh_token"] as? String,
+            let expirationInterval = loginResponse["expires_in"] as? NSTimeInterval else {
                 return Observable.just(false)
         }
         let expirationDate = NSDate().dateByAddingTimeInterval(expirationInterval)
@@ -46,7 +46,7 @@ class LoginController {
         return openSession(token)
     }
     
-    private func openSession(token: RHKOAuthToken) -> Observable<Bool> {
+    fileprivate func openSession(_ token: RHKOAuthToken) -> Observable<Bool> {
         return Observable.create { [weak self] observer -> Disposable in
             self?.rhapsody.openSessionWithToken(token) { session, error in
                 if let _ = error {

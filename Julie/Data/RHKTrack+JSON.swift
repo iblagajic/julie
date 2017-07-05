@@ -8,11 +8,11 @@
 
 extension RHKTrack {
     
-    static func fromJson(trackJson: AnyObject) -> RHKTrack {
+    static func fromJson(_ trackJson: AnyObject) -> RHKTrack {
         return RHKTrack.parseFromJson(trackJson)
     }
     
-    static func tracksFromJson(response: AnyObject) -> [RHKTrack] {
+    static func tracksFromJson(_ response: AnyObject) -> [RHKTrack] {
         guard let tracksJson = response as? [AnyObject] else {
             return []
         }

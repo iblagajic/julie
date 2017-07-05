@@ -17,7 +17,7 @@ extension UIViewController {
             .rx_notification(UIKeyboardWillShowNotification)
             .map { notification -> CGRect? in
                 guard let userInfo = notification.userInfo,
-                    frameValue = userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue else {
+                    let frameValue = userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue else {
                         return nil
                 }
                 return frameValue.CGRectValue()

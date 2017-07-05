@@ -54,10 +54,16 @@ extension RHKRhapsody {
     
     func rx_progress() -> Observable<Float> {
         return notificationCenter
-            .rx_notification("RHKNotificationPlayheadPositionChanged")
+            .rx_notification(RHKNotificationPlayheadPositionChanged)
             .map { [unowned self] _ in
                 Float(self.player.playheadPosition/self.player.currentTrackDuration)
         }
+    }
+    
+    func rx_error() -> Observable<String> {
+        return notificationCenter.rx_notification(RHKNotificationCurrentTrackFailed).map { notification -> String in
+                return notification.userInfo?[RHKNotificationErrorKey] as? String ?? ""
+            }
     }
     
 }

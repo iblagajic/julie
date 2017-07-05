@@ -14,7 +14,7 @@ class PlayerViewModel {
     
     let loading: Observable<Bool>
     
-    private let bag = DisposeBag()
+    fileprivate let bag = DisposeBag()
     
     init(rhapsody: RHKRhapsody, navigationService: NavigationService) {
         let activityIndicator = ActivityIndicator()

@@ -17,7 +17,7 @@ class DetailsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        selectionStyle = .None
+        selectionStyle = .none
         playingIndicator.tintColor = .action()
         titleLabel?.font = .body()
         titleLabel?.textColor = .primary()
@@ -25,9 +25,9 @@ class DetailsTableViewCell: UITableViewCell {
         timeLabel?.textColor = .secondary()
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        playingIndicator.hidden = !selected
+        playingIndicator.isHidden = !selected
     }
 
 }

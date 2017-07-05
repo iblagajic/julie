@@ -13,7 +13,7 @@ class TextField: UITextField {
     override func awakeFromNib() {
         super.awakeFromNib()
         font = .input()
-        borderStyle = .None
+        borderStyle = .none
         textColor = .primary()
     }
 

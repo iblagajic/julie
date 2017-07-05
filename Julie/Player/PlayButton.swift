@@ -15,14 +15,14 @@ class PlayButton: UIButton {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         addTarget(self, action: #selector(touchDown),
-                  forControlEvents: UIControlEvents.TouchDown)
+                  for: UIControlEvents.touchDown)
         addTarget(self, action: #selector(cancel),
-                  forControlEvents: [UIControlEvents.TouchUpOutside, UIControlEvents.TouchCancel, UIControlEvents.TouchDragExit])
+                  for: [UIControlEvents.touchUpOutside, UIControlEvents.touchCancel, UIControlEvents.touchDragExit])
     }
     
     func touchDown() {
         animateChanges{ () -> Void in
-            self.transform = CGAffineTransformMakeScale(PlayButton.roundButtonTouchDownScale, PlayButton.roundButtonTouchDownScale)
+            self.transform = CGAffineTransform(scaleX: PlayButton.roundButtonTouchDownScale, y: PlayButton.roundButtonTouchDownScale)
             self.imageView?.alpha = 0.0
             self.backgroundColor = .action()
         }
@@ -34,18 +34,18 @@ class PlayButton: UIButton {
         }
     }
     
-    func animateChanges(changes:() -> Void) {
-        UIView.animateWithDuration(0.3, delay: 0,
+    func animateChanges(_ changes:@escaping () -> Void) {
+        UIView.animate(withDuration: 0.3, delay: 0,
                                    usingSpringWithDamping: 0.6,
                                    initialSpringVelocity: 0,
-                                   options: UIViewAnimationOptions.BeginFromCurrentState,
+                                   options: UIViewAnimationOptions.beginFromCurrentState,
                                    animations: { () -> Void in
                                     changes()
             }, completion: nil)
     }
     
     func setIdle() {
-        self.transform = CGAffineTransformIdentity
+        self.transform = CGAffineTransform.identity
         self.imageView?.alpha = 1.0
         self.backgroundColor = .primary()
     }

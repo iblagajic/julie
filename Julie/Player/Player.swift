@@ -17,7 +17,7 @@ class Player {
     
     var hasPrevious: Bool {
         guard let track = rhapsody.player.currentTrack,
-            index = self.tracks.indexOf(track) else {
+            let index = self.tracks.indexOf(track) else {
                 return false
         }
         return index > 0
@@ -25,7 +25,7 @@ class Player {
     
     var hasNext: Bool {
         guard let track = rhapsody.player.currentTrack,
-            index = self.tracks.indexOf(track) else {
+            let index = self.tracks.indexOf(track) else {
                 return false
         }
         return self.tracks.count > index + 1
@@ -83,7 +83,7 @@ class Player {
         }
     }
     
-    func playTrack(atIndex: Int) {
+    func playTrack(_ atIndex: Int) {
         if let track = tracks[safe: atIndex] {
             lastTrackPlayedIndex = atIndex
             rhapsody.player.playTrack(track)

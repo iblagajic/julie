@@ -10,15 +10,15 @@ import UIKit
 
 extension UIFont {
     
-    private static func standard(size: CGFloat) -> UIFont {
+    fileprivate static func standard(_ size: CGFloat) -> UIFont {
         return UIFont(name: "Avenir Next", size: size)!
     }
     
-    private static func medium(size: CGFloat) -> UIFont {
+    fileprivate static func medium(_ size: CGFloat) -> UIFont {
         return UIFont(name: "AvenirNext-Medium", size: size)!
     }
     
-    private static func bold(size: CGFloat) -> UIFont {
+    fileprivate static func bold(_ size: CGFloat) -> UIFont {
         return UIFont(name: "AvenirNext-DemiBold", size: size)!
     }
     

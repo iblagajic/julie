@@ -13,7 +13,7 @@ import RxOptional
 class ViewController: UIViewController {
     
     let activityIndicatorContainer = UIView()
-    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
+    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
     
     let bag = DisposeBag()
 
@@ -31,16 +31,16 @@ class ViewController: UIViewController {
     }
     
     func setup() {
-        activityIndicatorContainer.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.3)
+        activityIndicatorContainer.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         activityIndicatorContainer.addSubview(activityIndicator)
-        activityIndicatorContainer.hidden = true
+        activityIndicatorContainer.isHidden = true
         view.addSubview(activityIndicatorContainer)
     }
     
     func setStyle() {
         view.backgroundColor = .standardBackground()
         
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.tintColor = .primary()
         navigationItem.leftBarButtonItem?.rx_tap.subscribeNext {
@@ -48,8 +48,8 @@ class ViewController: UIViewController {
         }.addDisposableTo(bag)
     }
     
-    func showLoading(show: Bool) {
-        activityIndicatorContainer.hidden = !show
+    func showLoading(_ show: Bool) {
+        activityIndicatorContainer.isHidden = !show
         if show {
             activityIndicator.startAnimating()
         } else {

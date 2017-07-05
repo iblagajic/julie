@@ -29,7 +29,7 @@ class DetailsViewModel {
     let nowPlayingIndex: Observable<Int?>
     let headerImage: Observable<UIImage?>
     
-    private let bag = DisposeBag()
+    fileprivate let bag = DisposeBag()
     
     init(player: Player) {
         let section = Section(items: player.tracks)

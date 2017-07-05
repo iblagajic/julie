@@ -1,6 +1,0 @@
-framework module RhapsodyKit {
-  umbrella header "RhapsodyKit.h"
-
-  export *
-  module * { export * }
-}

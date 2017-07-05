@@ -26,10 +26,10 @@ class NowPlayingViewController: ViewController {
         self.viewModel = viewModel
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.navigationBarHidden = true
+        navigationController?.isNavigationBarHidden = true
     }
     
     override func setStyle() {
